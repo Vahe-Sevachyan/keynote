@@ -38,5 +38,29 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import { ref, defineProps } from "vue";
+
+function toggleCardHide() {
+  isCardExpanded.value = !isCardExpanded.value;
+  emit("toggle-card-size", isCardExpanded.value);
+}
+
+function toggleCardHide() {
+  isTextShowing.value = !isTextShowing.value;
+  if (isTextShowing.value === true) {
+    HideBtnText.value = "Hide Text";
+  } else if (isTextShowing.value === false) {
+    HideBtnText.value = "Show Text";
+  }
+  emit("toggle-card-hide", isTextShowing.value);
+}
+function editNote() {
+  emit("edit-note", note.value);
+}
+
+function deleteNote() {
+  emit("delete-note", note.value);
+}
+</script>
 <style></style>
