@@ -1,20 +1,50 @@
 <template>
-  <div class="over-lay">
+  <div class="overlay">
     <div class="modal">
-      <h2 class="modalTitle">{{ newNoteTitle }}</h2>
-      <input
-        type="text"
-        class="title-input"
-        :placeholder="inputAreaPlaceholder"
-        v-model.trim="titleText"
-      />
+      <h2 class="modalTitle">{{ title }}</h2>
+      <div>
+        <!-- <input
+          type="text"
+          class="category-input"
+          :placeholder="categoryInputPlaceHolder"
+          v-model.trim="categoryText"
+        /> -->
+        <!-- <select v-model="selectedCategory">
+          <option v-for="note in newNote" :value="note.categoryName">
+            {{ note.categoryName }}
+          </option>
+        </select> -->
+        <div>
+          <select v-model="selectedCategory">
+            <option value="">Select an item</option>
+            <option v-for="note in notes" :key="note.id" :value="note.id">
+              {{ note.categoryName }}
+            </option>
+            <option value="new">Create New Category</option>
+          </select>
+          <div v-if="selectedCategory === 'new'">
+            <input
+              type="text"
+              v-model="newCategoryName"
+              placeholder="Enter Category Name"
+            />
+            <!-- <button @click="createNewItem">Create</button> -->
+          </div>
+        </div>
+        <input
+          type="text"
+          class="title-input"
+          :placeholder="inputAreaPlaceHolder"
+          v-model.trim="titleText"
+        />
+      </div>
       <textarea
         v-model.trim="noteText"
         name="note"
         id="note"
         cols="30"
         rows="10"
-        :placeholder="textAreaPlaceholder"
+        :placeholder="textAreaPlaceHolder"
       ></textarea>
       <p v-if="errorMessage" class="errorMsg">{{ errorMessage }}</p>
       <button @click="saveNote">{{ saveButtonText }}</button>
@@ -22,63 +52,178 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref, defineEmits } from "vue";
 const noteText = ref("");
+const selectedCategory = ref("");
+const newCategoryName = ref("");
 const titleText = ref("");
+const categoryText = ref("");
 const errorMessage = ref("");
-const newNoteTitle = ref("New Note");
-const textAreaPlaceholder = ref("Enter note...");
-const inputAreaPlaceholder = ref("Enter title");
+const title = ref("New Note");
+const categoryInputPlaceHolder = ref("Enter Category Name");
+const textAreaPlaceHolder = ref("Enter note...");
+const inputAreaPlaceHolder = ref("Enter Note title...");
 const saveButtonText = ref("Add Note");
 const closeButtonText = ref("Close");
 const emit = defineEmits("add-note", "close");
 
-function saveNote() {
-  if (titleText.length < 3) {
-    errorMessage.value = "Title must be minimum of 3 characters or more!";
-    return;
-  } else if (noteText.value < 5) {
-    errorMessage.value = "Note must be minimum of 5 characters or more!";
+// function saveNote() {
+//   if (titleText.value.length < 3) {
+//     errorMessage.value = "Title must be minimum of 3 characters or more!";
+//     return;
+//   } else if (titleText.value.length > 13) {
+//     errorMessage.value = "Title cant be more than 13 characters";
+//     return;
+//   } else if (noteText.value.length < 5) {
+//     errorMessage.value = "Note must be minimum of 5 characters or more!";
+//     return;
+//   }
+
+//   const newNote = {
+//     id: Math.floor(Math.random() * 10000000),
+//     title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
+//     text: noteText.value,
+//     date: new Date(),
+//     backgroundColor: getRandomColor(),
+//     btnColor: getBtnColor(),
+//   };
+//   errorMessage.value = "";
+//   noteText.value = "";
+//   titleText.value = "";
+//   emit("add-note", newNote);
+// }
+
+const addCategory = () => {
+  if (
+    newCategoryName.value &&
+    !categories.value.some(
+      (category) => category.name === newCategoryName.value
+    )
+  ) {
+    categories.value.push({ name: newCategoryName.value, cards: [] });
+    newCategoryName.value = "";
   }
+};
+
+const addCard = () => {
+  const categoryIndex = categories.value.findIndex(
+    (category) => category.name === selectedCategory.value
+  );
+  if (categoryIndex !== -1) {
+    categories.value[categoryIndex].cards.push(newCardName.value);
+    newCardName.value = "";
+  }
+};
+
+function saveNote() {
   const newNote = {
-    id: Math.floor(Math.random() * 1000000),
-    title: titleText.value,
-    text: noteText.value,
-    date: new Date(),
-    backgroundColor: getRandomColor(),
+    categoryName: newCategoryName.value,
+    id: Math.floor(Math.random() * 10000000),
+    cards: [
+      {
+        id: Math.floor(Math.random() * 10000000),
+        title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
+        text: noteText.value,
+        date: new Date(),
+        backgroundColor: getRandomColor(),
+        btnColor: getBtnColor(),
+      },
+    ],
   };
-  errorMessage.value = "";
-  noteText.value = "";
-  titleText.value = "";
+  // console.log(newNote.cards.date);
   emit("add-note", newNote);
 }
+
 function closeModal() {
   noteText.value = "";
   titleText.value = "";
   errorMessage.value = "";
   emit("close");
 }
+
 function getRandomColor() {
   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 }
+function getBtnColor() {
+  return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+}
+
+// function getRandomColor() {
+//   let angle = Math.floor(Math.random() * 360);
+//   let gradient = `linear-gradient(${angle}deg,
+
+//         #${colorCode()},
+//         #${colorCode()})`;
+//   return gradient;
+//   // return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+// }
+// function colorCode() {
+//   let hexCode1 = "";
+//   let hexValues1 = "0123456789abcdef";
+//   for (let i = 0; i < 6; i++) {
+//     hexCode1 += hexValues1.charAt(
+//       Math.floor(Math.random() * hexValues1.length)
+//     );
+//   }
+//   return hexCode1;
+// }
 </script>
+
 <style scoped>
 .title-input {
   border: 1px solid black;
   margin-bottom: 10px;
   width: 100%;
 }
+.category-input {
+  border: 1px solid black;
+  margin-bottom: 10px;
+  width: 100%;
+}
 .overlay {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.77);
+  width: 450px;
+  height: 50%;
+  /* background-color: rgba(0, 0, 0, 0.77); */
   z-index: 10px;
-  display: flex;
+  height: auto;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: auto; */
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
+  /* border: 3px solid red; */
+
+  /* new */
+  /* z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
 }
+.modal {
+  width: 450px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  /* new */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Adjust width and height as needed */
+  /* width: 400px;
+  height: 200px; */
+}
+
 .modalTitle {
   margin-top: -15px;
   margin-bottom: 15px;
@@ -91,16 +236,10 @@ function getRandomColor() {
   outline: none;
   border: 2px solid #106de6;
 }
-.modal {
-  width: 450px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+.category-input:focus {
+  outline: none;
+  border: 2px solid #106de6;
 }
-
 .modal button {
   background-image: linear-gradient(
     to right,
@@ -162,7 +301,6 @@ function getRandomColor() {
 textarea {
   resize: none;
   border: 1.8px solid black;
-  width: 100%;
 }
 textarea:focus {
   outline: none;

@@ -1,14 +1,14 @@
 <template>
   <div
-    v-bind:class="['card', { expanded: isCardExpanded }]"
-    v-bind:style="{ backgroundColor: note.cards.backgroundColor }"
+    :class="['card', { expanded: isCardExpanded }]"
+    :style="{ backgroundColor: note.cards.backgroundColor }"
   >
-    <!-- backGroundImage -->
+    <!-- backgroundImage -->
     <div class="card-title-container">
       <p>{{ note.title }}</p>
-      <ul class="editBtn">
-        <li @click="editNote"><img src="../assets/edit.svg" /></li>
-        <li @click="deleteNote"><img src="../assets/trash.svg" /></li>
+      <ul class="editBtn-container">
+        <li @click="editNote"><img src="../assets/edit.svg" alt="" /></li>
+        <li @click="deleteNote"><img src="../assets/trash.svg" alt="" /></li>
       </ul>
     </div>
     <!--No styles for text-container -->
@@ -20,15 +20,16 @@
       <button
         class="toggle-card-size-btn"
         @click="toggleCardSize"
-        v-bind:style="{ backgroundColor: note.cards.btnColor }"
+        :style="{ backgroundColor: note.cards.btnColor }"
       >
         <span v-if="!isCardExpanded">
           <img src="../assets/arrow-down.svg" alt="" />
-          Expand
+          Expand <font-awesome-icon :icon="['fas', 'arrow-up-from-bracket']" />
         </span>
         <span v-else>
           <img src="../assets/arrow-up.svg" alt="" /> Collapse</span
         >
+        <!-- Toggle -->
       </button>
       <button class="toggle-text-hide-btn" @click="toggleCardHide">
         {{ HideBtnText }}
@@ -38,8 +39,9 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, defineProps } from "vue";
+const emit = defineEmits("edit-note", "delete-note");
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
 const HideBtnText = ref("Show Text");
@@ -47,11 +49,12 @@ const props = defineProps({
   note: Object,
 });
 const note = ref(props.note);
-function toggleCardHide() {
+// const HideBtnText = computed(() => (state.showText ? "Hide Text" : "Show Text"));
+
+function toggleCardSize() {
   isCardExpanded.value = !isCardExpanded.value;
   emit("toggle-card-size", isCardExpanded.value);
 }
-
 function toggleCardHide() {
   isTextShowing.value = !isTextShowing.value;
   if (isTextShowing.value === true) {
@@ -61,6 +64,7 @@ function toggleCardHide() {
   }
   emit("toggle-card-hide", isTextShowing.value);
 }
+
 function editNote() {
   emit("edit-note", note.value);
 }
@@ -69,7 +73,14 @@ function deleteNote() {
   emit("delete-note", note.value);
 }
 </script>
+
 <style scoped>
+/* .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+} */
+
 .toggle-card-size-btn {
   width: 98px;
   border-radius: 5px;
@@ -79,7 +90,17 @@ function deleteNote() {
   display: flex;
   justify-content: space-around;
   font-size: 0.8rem;
+  /* font-family: "Poppins", sans-serif; */
+  /* width: 30%; */
+  /* height: 70px; */
+  /* padding: 16px; */
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+  /* margin: auto; */
 }
+
 .toggle-text-hide-btn {
   width: 80px;
   font-family: "Poppins", sans-serif;
@@ -88,10 +109,18 @@ function deleteNote() {
   font-size: 13.5px;
 }
 .btn-container {
+  /* display: flex; */
   width: 210px;
   display: flex;
   justify-content: space-evenly;
+
+  /* align-items: center; */
+  /* border: 1px solid red; */
 }
+/* .btn-container button {
+  margin: auto;
+  border: 1px solid red;
+} */
 span {
   display: flex;
   align-items: center;
