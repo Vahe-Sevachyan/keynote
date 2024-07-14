@@ -13,11 +13,13 @@
       :modifiedNote="selectedNote.text"
       :modifiedTitle="selectedNote.title"
     />
-    <!-- @updateTitle="saveTitle" -->
-    <div class="container">
+    <div class="nav-container">
       <h1>Keynote</h1>
       <!-- <button @click="toggleModal()">Create Note</button> -->
       <CreateNoteBtn @create-note-btn="toggleModal()" />
+    </div>
+    <!-- @updateTitle="saveTitle" -->
+    <div class="notes-container">
       <div class="card-wrapper">
         <NoteCard
           v-for="(note, index) in notes"
@@ -57,19 +59,7 @@ function toggleCardHideHandler() {
 function toggleCardSizeHandler() {
   isCardExpanded.value = true;
 }
-// <<<< this logic goes in the addNote function>>>>>>
-// const addCategory = () => {
-//   if (
-//     newCategoryName.value &&
-//     !categories.value.some(
-//       (category) => category.name === newCategoryName.value
-//     )
-//   ) {
-//     categories.value.push({ name: newCategoryName.value, cards: [] });
-//     newCategoryName.value = "";
-//   }
-// };
-// <<<< this logic goes in the addNote function>>>>>>
+
 function addNote(newNote) {
   //   if (notes.includes(newNote.categoryName)) {
   //     notes.value.push();
@@ -123,8 +113,22 @@ function deleteNoteHandler(index) {
 .note-card {
   margin-bottom: 5px;
 }
-.container {
-  width: 280px;
+.nav-container {
+  display: flex;
+  border: solid 1px red;
+  align-items: center;
+  width: 570px;
+  justify-content: space-between;
+  margin: auto;
+  background-color: rgb(187, 190, 140);
+}
+.notes-container {
+  background-color: rgb(143, 235, 212);
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin: auto;
+  width: 1480px;
   max-height: 800px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -135,7 +139,9 @@ function deleteNoteHandler(index) {
   /* border: 1px solid red; */
   padding-top: 5px;
 }
-
+.lorem {
+  width: 300px;
+}
 .card-wrapper {
   display: flex;
   flex-direction: column;
@@ -159,3 +165,16 @@ function deleteNoteHandler(index) {
   /* align-items: center; */
 }
 </style>
+<!-- // <<<< this logic goes in the addNote function>>>>>>
+// const addCategory = () => {
+//   if (
+//     newCategoryName.value &&
+//     !categories.value.some(
+//       (category) => category.name === newCategoryName.value
+//     )
+//   ) {
+//     categories.value.push({ name: newCategoryName.value, cards: [] });
+//     newCategoryName.value = "";
+//   }
+// };
+// <<<< this logic goes in the addNote function>>>>>> -->
