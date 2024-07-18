@@ -18,7 +18,6 @@ button {
     #26d0ce 51%,
     #1a2980 100%
   );
-  width: 200px;
   font-family: Roboto, sans-serif;
   border: none;
   margin: 10px;
@@ -31,7 +30,7 @@ button {
   /* box-shadow: 0 0 0px; */
   border-radius: 10px;
   display: block;
-  /* margin: auto; */
+  margin: auto;
   /* margin: 5px; */
   /* margin: 5px 0 5px 0; */
 }

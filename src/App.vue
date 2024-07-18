@@ -13,13 +13,12 @@
       :modifiedNote="selectedNote.text"
       :modifiedTitle="selectedNote.title"
     />
-    <div class="nav-container">
-      <h1>Keynote</h1>
-      <!-- <button @click="toggleModal()">Create Note</button> -->
-      <CreateNoteBtn @create-note-btn="toggleModal()" />
-    </div>
     <!-- @updateTitle="saveTitle" -->
-    <div class="notes-container">
+    <div class="container">
+      <!-- <button @click="toggleModal()">Create Note</button> -->
+      <h1 class="header">Keynote</h1>
+      <CreateNoteBtn @create-note-btn="toggleModal()" />
+
       <div class="card-wrapper">
         <NoteCard
           v-for="(note, index) in notes"
@@ -59,7 +58,19 @@ function toggleCardHideHandler() {
 function toggleCardSizeHandler() {
   isCardExpanded.value = true;
 }
-
+// <<<< this logic goes in the addNote function>>>>>>
+// const addCategory = () => {
+//   if (
+//     newCategoryName.value &&
+//     !categories.value.some(
+//       (category) => category.name === newCategoryName.value
+//     )
+//   ) {
+//     categories.value.push({ name: newCategoryName.value, cards: [] });
+//     newCategoryName.value = "";
+//   }
+// };
+// <<<< this logic goes in the addNote function>>>>>>
 function addNote(newNote) {
   //   if (notes.includes(newNote.categoryName)) {
   //     notes.value.push();
@@ -111,46 +122,51 @@ function deleteNoteHandler(index) {
   display: flex;
 }
 .note-card {
-  margin-bottom: 5px;
+  /* margin: auto; */
 }
-.nav-container {
-  display: flex;
-  border: solid 1px red;
-  align-items: center;
-  width: 570px;
-  justify-content: space-between;
+.header {
+  width: 300px;
   margin: auto;
-  background-color: rgb(187, 190, 140);
-}
-.notes-container {
-  background-color: rgb(143, 235, 212);
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  margin: auto;
-  width: 1480px;
+  margin-bottom: 10px;
+  background: linear-gradient(
+    to right,
+    hsl(170, 56%, 75%),
+    hsl(213, 100%, 59%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: monospace;
+  font-size: 45px;
+}
+.container {
+  width: 1380px;
   max-height: 800px;
   overflow-y: auto;
   overflow-x: hidden;
-  /* transition: max-height 5.3s ease-in; */
+  transition: max-height 5.3s ease-in;
   transition: max-height 3.25s ease;
   transition-duration: 2s;
   scrollbar-gutter: stable both-edges;
   /* border: 1px solid red; */
   padding-top: 5px;
-}
-.lorem {
-  width: 300px;
-}
-.card-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-  justify-content: center;
-  align-items: center;
   margin: auto;
+}
+
+.card-wrapper {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 1290px;
   padding-top: 5px;
   padding-bottom: 5px;
+  /* flex-direction: row; */
+  /* justify-content: center;
+  align-items: center; */
+  /* margin: auto; */
   /* border: 1px solid red; */
   /* align-items: center; */
   /* max-height: 800px;
@@ -165,16 +181,3 @@ function deleteNoteHandler(index) {
   /* align-items: center; */
 }
 </style>
-<!-- // <<<< this logic goes in the addNote function>>>>>>
-// const addCategory = () => {
-//   if (
-//     newCategoryName.value &&
-//     !categories.value.some(
-//       (category) => category.name === newCategoryName.value
-//     )
-//   ) {
-//     categories.value.push({ name: newCategoryName.value, cards: [] });
-//     newCategoryName.value = "";
-//   }
-// };
-// <<<< this logic goes in the addNote function>>>>>> -->

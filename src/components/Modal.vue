@@ -14,7 +14,7 @@
             {{ note.categoryName }}
           </option>
         </select> -->
-        <div>
+        <!-- <div>
           <select v-model="selectedCategory">
             <option value="">Select an item</option>
             <option v-for="note in notes" :key="note.id" :value="note.id">
@@ -28,9 +28,8 @@
               v-model="newCategoryName"
               placeholder="Enter Category Name"
             />
-            <!-- <button @click="createNewItem">Create</button> -->
           </div>
-        </div>
+        </div> -->
         <input
           type="text"
           class="title-input"
@@ -69,72 +68,72 @@ const saveButtonText = ref("Add Note");
 const closeButtonText = ref("Close");
 const emit = defineEmits("add-note", "close");
 
-// function saveNote() {
-//   if (titleText.value.length < 3) {
-//     errorMessage.value = "Title must be minimum of 3 characters or more!";
-//     return;
-//   } else if (titleText.value.length > 13) {
-//     errorMessage.value = "Title cant be more than 13 characters";
-//     return;
-//   } else if (noteText.value.length < 5) {
-//     errorMessage.value = "Note must be minimum of 5 characters or more!";
-//     return;
-//   }
-
-//   const newNote = {
-//     id: Math.floor(Math.random() * 10000000),
-//     title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
-//     text: noteText.value,
-//     date: new Date(),
-//     backgroundColor: getRandomColor(),
-//     btnColor: getBtnColor(),
-//   };
-//   errorMessage.value = "";
-//   noteText.value = "";
-//   titleText.value = "";
-//   emit("add-note", newNote);
-// }
-
-const addCategory = () => {
-  if (
-    newCategoryName.value &&
-    !categories.value.some(
-      (category) => category.name === newCategoryName.value
-    )
-  ) {
-    categories.value.push({ name: newCategoryName.value, cards: [] });
-    newCategoryName.value = "";
-  }
-};
-
-const addCard = () => {
-  const categoryIndex = categories.value.findIndex(
-    (category) => category.name === selectedCategory.value
-  );
-  if (categoryIndex !== -1) {
-    categories.value[categoryIndex].cards.push(newCardName.value);
-    newCardName.value = "";
-  }
-};
-
 function saveNote() {
+  if (titleText.value.length < 3) {
+    errorMessage.value = "Title must be minimum of 3 characters or more!";
+    return;
+  } else if (titleText.value.length > 13) {
+    errorMessage.value = "Title cant be more than 13 characters";
+    return;
+  } else if (noteText.value.length < 5) {
+    errorMessage.value = "Note must be minimum of 5 characters or more!";
+    return;
+  }
+
   const newNote = {
-    categoryName: newCategoryName.value,
     id: Math.floor(Math.random() * 10000000),
-    cards: [
-      {
-        id: Math.floor(Math.random() * 10000000),
-        title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
-        text: noteText.value,
-        date: new Date(),
-        backgroundColor: getRandomColor(),
-        btnColor: getBtnColor(),
-      },
-    ],
+    title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
+    text: noteText.value,
+    date: new Date(),
+    backgroundColor: getRandomColor(),
+    btnColor: getBtnColor(),
   };
-  // console.log(newNote.cards.date);
+  errorMessage.value = "";
+  noteText.value = "";
+  titleText.value = "";
   emit("add-note", newNote);
 }
+
+// const addCategory = () => {
+//   if (
+//     newCategoryName.value &&
+//     !categories.value.some(
+//       (category) => category.name === newCategoryName.value
+//     )
+//   ) {
+//     categories.value.push({ name: newCategoryName.value, cards: [] });
+//     newCategoryName.value = "";
+//   }
+// };
+
+// const addCard = () => {
+//   const categoryIndex = categories.value.findIndex(
+//     (category) => category.name === selectedCategory.value
+//   );
+//   if (categoryIndex !== -1) {
+//     categories.value[categoryIndex].cards.push(newCardName.value);
+//     newCardName.value = "";
+//   }
+// };
+
+// function saveNote() {
+//   const newNote = {
+//     categoryName: newCategoryName.value,
+//     id: Math.floor(Math.random() * 10000000),
+//     cards: [
+//       {
+//         id: Math.floor(Math.random() * 10000000),
+//         title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
+//         text: noteText.value,
+//         date: new Date(),
+//         backgroundColor: getRandomColor(),
+//         btnColor: getBtnColor(),
+//       },
+//     ],
+//   };
+//   // console.log(newNote.cards.date);
+//   emit("add-note", newNote);
+// }
 
 function closeModal() {
   noteText.value = "";
@@ -146,6 +145,7 @@ function closeModal() {
 function getRandomColor() {
   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 }
+
 function getBtnColor() {
   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 }

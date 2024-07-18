@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['card', { expanded: isCardExpanded }]"
-    :style="{ backgroundColor: note.cards.backgroundColor }"
+    :style="{ backgroundColor: note.backgroundColor }"
   >
     <!-- backgroundImage -->
     <div class="card-title-container">
@@ -13,14 +13,14 @@
     </div>
     <!--No styles for text-container -->
     <div class="text-container">
-      <p v-if="isTextShowing" class="main-text">{{ note.cards.text }}</p>
+      <p v-if="isTextShowing" class="main-text">{{ note.text }}</p>
       <p v-else>...</p>
     </div>
     <div class="btn-container">
       <button
         class="toggle-card-size-btn"
         @click="toggleCardSize"
-        :style="{ backgroundColor: note.cards.btnColor }"
+        :style="{ backgroundColor: note.btnColor }"
       >
         <span v-if="!isCardExpanded">
           <img src="../assets/arrow-down.svg" alt="" />
@@ -35,7 +35,7 @@
         {{ HideBtnText }}
       </button>
     </div>
-    <p class="date">{{ note.cards[0].date.toLocaleString("en-US") }}</p>
+    <p class="date">{{ note.date.toLocaleString("en-US") }}</p>
   </div>
 </template>
 
@@ -128,7 +128,7 @@ span {
 }
 .card {
   width: 230px;
-  height: 185px;
+  height: 260px;
   padding: 10px;
   border-radius: 15px;
   display: flex;
@@ -139,7 +139,7 @@ span {
   /* border: 1px solid white; */
   overflow: hidden;
   /* transition: height 4.3s ease-in-out; */
-  margin: 4px 0 4px 0;
+  margin: 4px 4px 4px 4px;
 }
 
 .card.expanded {
