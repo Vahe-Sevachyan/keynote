@@ -13,9 +13,7 @@
       :modifiedNote="selectedNote.text"
       :modifiedTitle="selectedNote.title"
     />
-    <!-- @updateTitle="saveTitle" -->
     <div class="container">
-      <!-- <button @click="toggleModal()">Create Note</button> -->
       <h1 class="header">Keynote</h1>
       <CreateNoteBtn @create-note-btn="toggleModal()" />
 
@@ -58,7 +56,7 @@ function toggleCardHideHandler() {
 function toggleCardSizeHandler() {
   isCardExpanded.value = true;
 }
-// <<<< this logic goes in the addNote function>>>>>>
+// <<<< this goes in the addNote function>>>>>>
 // const addCategory = () => {
 //   if (
 //     newCategoryName.value &&
@@ -83,7 +81,6 @@ function addNote(newNote) {
 
 function editNoteHandler(note) {
   // Open the modal for editing
-  //   console.log(notes);
   editNote.value = true;
   selectedNote.value = note;
 }
@@ -111,18 +108,13 @@ function cancelEditModal() {
 function deleteNoteHandler(index) {
   if (index !== -1) {
     notes.value.splice(index, 1);
-    // editNote.value.splice(index, 1);
   }
-  // notes.value.splice(index, 1);
 }
 </script>
 
 <style scoped>
 .modal {
   display: flex;
-}
-.note-card {
-  /* margin: auto; */
 }
 .header {
   width: 300px;
@@ -150,34 +142,16 @@ function deleteNoteHandler(index) {
   transition: max-height 3.25s ease;
   transition-duration: 2s;
   scrollbar-gutter: stable both-edges;
-  /* border: 1px solid red; */
   padding-top: 5px;
   margin: auto;
 }
 
 .card-wrapper {
-  /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   margin: auto;
   width: 1290px;
   padding-top: 5px;
   padding-bottom: 5px;
-  /* flex-direction: row; */
-  /* justify-content: center;
-  align-items: center; */
-  /* margin: auto; */
-  /* border: 1px solid red; */
-  /* align-items: center; */
-  /* max-height: 800px;
-  overflow-y: auto;
-  overflow-x: hidden; */
-  /* scrollbar-gutter: stable both-edges; */
-  /* border: 1px solid red; */
-  /* align-items: center; */
-  /* flex-wrap: wrap;
-  justify-content: flex-start; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
 }
 </style>

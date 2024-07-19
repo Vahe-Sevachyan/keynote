@@ -6,10 +6,12 @@
     <!-- backgroundImage -->
     <div class="card-title-container">
       <p>{{ note.title }}</p>
-      <ul class="editBtn-container">
-        <li @click="editNote"><img src="../assets/edit.svg" alt="" /></li>
-        <li @click="deleteNote"><img src="../assets/trash.svg" alt="" /></li>
-      </ul>
+      <div class="editBtn-container">
+        <span @click="editNote"><img src="../assets/edit.svg" alt="" /></span>
+        <span @click="deleteNote"
+          ><img src="../assets/trash.svg" alt=""
+        /></span>
+      </div>
     </div>
     <!--No styles for text-container -->
     <div class="text-container">
@@ -49,7 +51,6 @@ const props = defineProps({
   note: Object,
 });
 const note = ref(props.note);
-// const HideBtnText = computed(() => (state.showText ? "Hide Text" : "Show Text"));
 
 function toggleCardSize() {
   isCardExpanded.value = !isCardExpanded.value;
@@ -75,12 +76,6 @@ function deleteNote() {
 </script>
 
 <style scoped>
-/* .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 1000px;
-} */
-
 .toggle-card-size-btn {
   width: 98px;
   border-radius: 5px;
@@ -90,15 +85,6 @@ function deleteNote() {
   display: flex;
   justify-content: space-around;
   font-size: 0.8rem;
-  /* font-family: "Poppins", sans-serif; */
-  /* width: 30%; */
-  /* height: 70px; */
-  /* padding: 16px; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; */
-  /* margin: auto; */
 }
 
 .toggle-text-hide-btn {
@@ -107,25 +93,20 @@ function deleteNote() {
   border-radius: 5px;
   margin-bottom: 4.5px;
   font-size: 13.5px;
+  background-color: black;
+  color: #ffff;
 }
 .btn-container {
-  /* display: flex; */
   width: 210px;
   display: flex;
   justify-content: space-evenly;
-
-  /* align-items: center; */
-  /* border: 1px solid red; */
 }
-/* .btn-container button {
-  margin: auto;
-  border: 1px solid red;
-} */
 span {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .card {
   width: 230px;
   height: 260px;
@@ -136,7 +117,6 @@ span {
   justify-content: space-between;
   margin: 15px 15px 15px 0;
   margin: auto;
-  /* border: 1px solid white; */
   overflow: hidden;
   /* transition: height 4.3s ease-in-out; */
   margin: 4px 4px 4px 4px;
@@ -150,14 +130,14 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 5px;
-  width: 200px;
+  /* padding-top: 5px; */
+  width: 213px;
   font-size: 19px;
   font-family: "Poppins", sans-serif;
   /* height: 30px; */
-  /* border: 1px solid black; */
   margin: auto;
   margin-bottom: 5px;
+  border: 1px solid red;
 }
 .main-text::-webkit-scrollbar {
   width: 12px; /* Adjust scrollbar width */
@@ -197,15 +177,16 @@ span {
 }
 
 .card-title-container p {
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
 .card-title-container span {
   font-size: 20px;
 }
 .editBtn-container {
   display: flex;
-  justify-content: space-between;
-  /* border: 1px solid black; */
+  /* justify-content: space-between; */
+  /* width: 30px; */
+  border: 1px solid black;
   list-style: none;
 }
 .editBtn-container img {
