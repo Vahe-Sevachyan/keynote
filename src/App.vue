@@ -14,9 +14,18 @@
       :modifiedTitle="selectedNote.title"
     />
     <div class="container">
-      <h1 class="header">Keynote</h1>
-      <CreateNoteBtn @create-note-btn="toggleModal()" />
+      <div class="nav-section">
+        <h1 class="header">Keynote</h1>
 
+        <CreateNoteBtn
+          @create-note-btn="toggleModal()"
+          class="create-note-btn"
+        />
+      </div>
+
+      <p class="punch-line-text">
+        Turn messy thoughts into actionable notes. Faster
+      </p>
       <div class="card-wrapper">
         <NoteCard
           v-for="(note, index) in notes"
@@ -113,15 +122,31 @@ function deleteNoteHandler(index) {
 </script>
 
 <style scoped>
+.nav-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1000px;
+  margin: auto;
+  border: 1px solid black;
+}
+.create-note-btn {
+  width: 200px;
+  display: flex;
+  margin: auto;
+}
 .modal {
   display: flex;
 }
+.punch-line-text {
+  width: 400px;
+  font-family: "Poppins", sans-serif;
+}
 .header {
-  width: 300px;
+  width: 200px;
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
   background: linear-gradient(
     to right,
     hsl(170, 56%, 75%),

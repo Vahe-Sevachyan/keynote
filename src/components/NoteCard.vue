@@ -110,7 +110,7 @@ span {
 .card {
   width: 230px;
   height: 260px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -130,14 +130,28 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding-top: 5px; */
   width: 213px;
-  font-size: 19px;
-  font-family: "Poppins", sans-serif;
-  /* height: 30px; */
   margin: auto;
+  font-family: "Poppins", sans-serif;
+
+  /* margin: auto;
   margin-bottom: 5px;
-  border: 1px solid red;
+  border: 1px solid red; */
+  /* font-size: 19px; */
+  /* height: 30px; */
+  /* padding-top: 5px; */
+}
+.editBtn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 43px;
+  /* border: 1px solid black; */
+  list-style: none;
+}
+.editBtn-container img {
+  color: white;
+  width: 20px;
+  cursor: pointer;
 }
 .main-text::-webkit-scrollbar {
   width: 12px; /* Adjust scrollbar width */
@@ -181,17 +195,5 @@ span {
 }
 .card-title-container span {
   font-size: 20px;
-}
-.editBtn-container {
-  display: flex;
-  /* justify-content: space-between; */
-  /* width: 30px; */
-  border: 1px solid black;
-  list-style: none;
-}
-.editBtn-container img {
-  color: white;
-  width: 20px;
-  cursor: pointer;
 }
 </style>
