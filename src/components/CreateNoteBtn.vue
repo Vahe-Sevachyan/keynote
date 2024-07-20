@@ -18,12 +18,14 @@ button {
     #26d0ce 51%,
     #1a2980 100%
   );
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
   border: none;
   margin: 10px;
   padding: 10px 35px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   transition: 0.5s;
   background-size: 200% auto;
   color: white;

@@ -24,7 +24,7 @@
       </div>
 
       <p class="punch-line-text">
-        Turn messy thoughts into actionable notes. Faster
+        Turn messy thoughts into actionable notes.Faster.
       </p>
       <div class="card-wrapper">
         <NoteCard
@@ -128,7 +128,7 @@ function deleteNoteHandler(index) {
   align-items: center;
   width: 1000px;
   margin: auto;
-  border: 1px solid black;
+  margin-top: 8px;
 }
 .create-note-btn {
   width: 200px;
@@ -138,9 +138,18 @@ function deleteNoteHandler(index) {
 .modal {
   display: flex;
 }
+
 .punch-line-text {
-  width: 400px;
-  font-family: "Poppins", sans-serif;
+  color: #ffff;
+  width: 430px;
+  display: flex;
+  font-weight: 900;
+  text-align: center;
+  margin: auto;
+  margin-top: 15px;
+  font-size: 31px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 700;
 }
 .header {
   width: 200px;
@@ -155,12 +164,13 @@ function deleteNoteHandler(index) {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  font-family: monospace;
-  font-size: 45px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 50px;
+  letter-spacing: 0.1px;
 }
 .container {
-  width: 1380px;
-  max-height: 800px;
+  /* width: 1380px; */
+  /* max-height: 800px; */
   overflow-y: auto;
   overflow-x: hidden;
   transition: max-height 5.3s ease-in;
@@ -169,6 +179,21 @@ function deleteNoteHandler(index) {
   scrollbar-gutter: stable both-edges;
   padding-top: 5px;
   margin: auto;
+  background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
+  background-size: 400% 400%;
+  /* animation: gradient 45s ease infinite; */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .card-wrapper {
