@@ -13,6 +13,8 @@
       :modifiedNote="selectedNote.text"
       :modifiedTitle="selectedNote.title"
     />
+    <Test />
+    <Test2 />
     <div class="container">
       <div class="nav-section">
         <h1 class="header">Keynote</h1>
@@ -24,7 +26,7 @@
       </div>
 
       <p class="punch-line-text">
-        Turn messy thoughts into actionable notes.Faster.
+        <!-- Turn messy thoughts into actionable notes.Faster. -->
       </p>
       <div class="card-wrapper">
         <NoteCard
@@ -47,6 +49,8 @@ import Modal from "./components/Modal.vue";
 import NoteCard from "./components/NoteCard.vue";
 import EditModal from "./components/EditModal.vue";
 import CreateNoteBtn from "./components/CreateNoteBtn.vue";
+import Test from "./components/Test.vue";
+import Test2 from "./components/Test2.vue";
 const showModal = ref(false);
 const notes = ref([]);
 const selectedNote = ref(null);

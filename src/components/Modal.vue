@@ -207,9 +207,13 @@ function getBtnColor() {
   height: 100%; */
 }
 .modal {
+  background: #3c3c3c;
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   width: 450px;
-  background-color: #ffffff;
-  border-radius: 10px;
+  /* background-color: #ffffff; */
+  /* border-radius: 10px; */
   padding: 30px;
   /* position: relative; */
   display: flex;
@@ -228,9 +232,16 @@ function getBtnColor() {
   margin-top: -15px;
   margin-bottom: 15px;
   text-align: center;
-  font-family: "Nunito", Verdana, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 2.3rem;
+  /* color: linear-gradient(to right, hsl(170, 56%, 75%), hsl(213, 100%, 59%)); */
+  background: linear-gradient(
+    to right,
+    hsl(170, 56%, 75%),
+    hsl(213, 100%, 59%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .title-input:focus {
   outline: none;
@@ -251,11 +262,13 @@ function getBtnColor() {
   margin-top: 15px;
   padding: 15px 45px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
+  font-size: 1.2rem;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  /* box-shadow: 0 0 20px #eee; */
   border-radius: 10px;
   border: none;
   display: block;
@@ -278,11 +291,14 @@ function getBtnColor() {
   margin-top: 15px;
   padding: 15px 45px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   transition: 0.5s;
   background-size: 200% auto;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  /* box-shadow: 0 0 20px #eee; */
   border-radius: 10px;
   display: block;
 }
