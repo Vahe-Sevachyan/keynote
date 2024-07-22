@@ -77,29 +77,72 @@ function deleteNote() {
 
 <style scoped>
 .toggle-card-size-btn {
-  width: 98px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 4.5px;
   display: flex;
   justify-content: space-around;
   font-size: 0.8rem;
+  /* below  */
+
+  background-image: linear-gradient(
+    to right,
+    #24c6dc 0%,
+    #514a9d 51%,
+    #24c6dc 100%
+  );
+  width: 100%;
+  /* padding: 15px 45px; */
+  width: 85px;
+  height: 25px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  margin-bottom: 4.5px;
 }
 
 .toggle-text-hide-btn {
-  width: 80px;
-  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(
+    to right,
+    #dc2424 0%,
+    #4a569d 51%,
+    #dc2424 100%
+  );
+  width: 100%;
+  /* padding: 15px 45px; */
+  width: 70px;
+  height: 25px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  transition: 0.5s;
+  background-size: 200% auto;
+  font-size: 0.8rem;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
   border-radius: 5px;
-  margin-bottom: 4.5px;
-  font-size: 13.5px;
-  background-color: black;
-  color: #ffff;
+  cursor: pointer;
+  border: none;
+  display: block;
+}
+.toggle-text-hide-btn:hover {
+  background-position: right center;
+  color: #fff;
+  cursor: pointer;
+}
+.toggle-card-size-btn:hover {
+  background-position: right center;
+  color: #fff;
+  cursor: pointer;
 }
 .btn-container {
   width: 210px;
   display: flex;
   justify-content: space-evenly;
+  margin: auto;
 }
 span {
   display: flex;
@@ -179,7 +222,7 @@ span {
   /* overflow: hidden; */
   border-radius: 8px;
   padding: 3px;
-  font-size: 14px;
+  /* font-size: 14px; */
   overflow-y: auto;
   /* overflow-x: hidden; */
   transition: height 1.3s ease-in-out;
@@ -188,11 +231,21 @@ span {
   font-family: "Nunito", Verdana, sans-serif;
   font-size: 13px;
   text-align: center;
+  margin: auto;
 }
 
 .card-title-container p {
-  /* margin-bottom: 5px; */
+  font-size: 1.1rem;
+  font-family: "Share Tech Mono", monospace;
+  background: linear-gradient(
+    to right,
+    hsl(188, 65%, 48%),
+    hsl(213, 100%, 59%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 .card-title-container span {
   font-size: 20px;
 }

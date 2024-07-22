@@ -63,7 +63,7 @@ const errorMessage = ref("");
 const title = ref("New Note");
 const categoryInputPlaceHolder = ref("Enter Category Name");
 const textAreaPlaceHolder = ref("Enter note...");
-const inputAreaPlaceHolder = ref("Enter Note title...");
+const inputAreaPlaceHolder = ref("Enter title...");
 const saveButtonText = ref("Add Note");
 const closeButtonText = ref("Close");
 const emit = defineEmits("add-note", "close");
@@ -173,15 +173,43 @@ function getBtnColor() {
 
 <style scoped>
 .title-input {
+  /* border: 1px solid black; */
+  margin-bottom: 10px;
+  font-size: 17px;
+  padding: 4px 0 2px 2px;
+  width: 462px;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: rgb(238, 234, 234);
+}
+.title-input:focus {
+  outline: none;
+  /* border: 2px solid #106de6; */
+}
+
+textarea {
+  padding: 4px 0 2px 2px;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  resize: none;
+  background-color: rgb(238, 234, 234);
+  /* width: 100%; */
+  /* border: 1.8px solid black; */
+}
+textarea:focus {
+  outline: none;
+  /* border: 2px solid #106de6; */
+}
+
+/* .category-input {
   border: 1px solid black;
   margin-bottom: 10px;
   width: 100%;
 }
-.category-input {
-  border: 1px solid black;
-  margin-bottom: 10px;
-  width: 100%;
-}
+.category-input:focus {
+  outline: none;
+  border: 2px solid #106de6;
+} */
+
 .overlay {
   position: absolute;
   width: 450px;
@@ -211,9 +239,7 @@ function getBtnColor() {
   border: 1px solid #555;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  width: 450px;
-  /* background-color: #ffffff; */
-  /* border-radius: 10px; */
+  width: 470px;
   padding: 30px;
   /* position: relative; */
   display: flex;
@@ -234,6 +260,7 @@ function getBtnColor() {
   text-align: center;
   font-family: "Share Tech Mono", monospace;
   font-size: 2.3rem;
+  letter-spacing: -1px;
   /* color: linear-gradient(to right, hsl(170, 56%, 75%), hsl(213, 100%, 59%)); */
   background: linear-gradient(
     to right,
@@ -243,14 +270,7 @@ function getBtnColor() {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.title-input:focus {
-  outline: none;
-  border: 2px solid #106de6;
-}
-.category-input:focus {
-  outline: none;
-  border: 2px solid #106de6;
-}
+
 .modal button {
   background-image: linear-gradient(
     to right,
@@ -260,7 +280,7 @@ function getBtnColor() {
   );
   width: 100%;
   margin-top: 15px;
-  padding: 15px 45px;
+  height: 42px;
   text-align: center;
   /* text-transform: uppercase; */
   font-family: "Josefin Sans", sans-serif;
@@ -268,8 +288,7 @@ function getBtnColor() {
   background-size: 200% auto;
   font-size: 1.2rem;
   color: white;
-  /* box-shadow: 0 0 20px #eee; */
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   display: block;
 }
@@ -289,18 +308,15 @@ function getBtnColor() {
     #dc2424 100%
   );
   margin-top: 15px;
-  padding: 15px 45px;
   text-align: center;
-  /* text-transform: uppercase; */
   transition: 0.5s;
   background-size: 200% auto;
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.2rem;
-  font-weight: 400;
   color: white;
-  /* box-shadow: 0 0 20px #eee; */
-  border-radius: 10px;
+  border-radius: 5px;
   display: block;
+  width: 100%;
 }
 
 #close:hover {
@@ -312,14 +328,5 @@ function getBtnColor() {
 .errorMsg {
   color: tomato;
   font-family: Verdana, Tahoma, sans-serif;
-}
-
-textarea {
-  resize: none;
-  border: 1.8px solid black;
-}
-textarea:focus {
-  outline: none;
-  border: 2px solid #106de6;
 }
 </style>

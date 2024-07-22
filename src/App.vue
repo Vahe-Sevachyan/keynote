@@ -13,8 +13,8 @@
       :modifiedNote="selectedNote.text"
       :modifiedTitle="selectedNote.title"
     />
-    <Test />
-    <Test2 />
+    <!-- <Test />
+    <Test2 /> -->
     <div class="container">
       <div class="nav-section">
         <h1 class="header">Keynote</h1>
@@ -175,8 +175,10 @@ function deleteNoteHandler(index) {
 .container {
   /* width: 1380px; */
   /* max-height: 800px; */
-  overflow-y: auto;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow: hidden;
+  /* overflow-y: auto;
+  overflow-x: hidden; */
   transition: max-height 5.3s ease-in;
   transition: max-height 3.25s ease;
   transition-duration: 2s;
@@ -184,8 +186,9 @@ function deleteNoteHandler(index) {
   padding-top: 5px;
   margin: auto;
   background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
-  background-size: 400% 400%;
+  background-size: 150% 100%;
   /* animation: gradient 45s ease infinite; */
+  /* height: 100%; */
 }
 
 @keyframes gradient {
