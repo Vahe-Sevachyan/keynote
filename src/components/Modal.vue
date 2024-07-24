@@ -141,10 +141,17 @@ function closeModal() {
   errorMessage.value = "";
   emit("close");
 }
-
+//original random color
 function getRandomColor() {
-  return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+  return "hsl(" + Math.random() * 190 + ", 40%, 45%)";
+
+  // return "hsl(" + Math.random() * 250 + ", 50%, 75%)";
 }
+
+//Analogous Colors
+// function getRandomColor() {
+//   return "linear-gradient(135deg, #5e5e5e, #707070, #828282, #949494)"
+// }
 
 function getBtnColor() {
   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";

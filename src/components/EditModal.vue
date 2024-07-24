@@ -91,9 +91,11 @@ const updatedTitle = ref(props.modifiedTitle);
   display: flex;
   flex-direction: column; */
   /* new */
-  width: 450px;
-  background-color: #ffffff;
-  border-radius: 10px;
+  background: #3c3c3c;
+  border: 1px solid #555;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  width: 470px;
   padding: 30px;
   /* position: relative; */
   display: flex;
@@ -105,17 +107,28 @@ const updatedTitle = ref(props.modifiedTitle);
   transform: translate(-50%, -50%);
 }
 .title-input {
-  border: 1px solid black;
   margin-bottom: 10px;
-  width: 100%;
+  font-size: 17px;
+  padding: 4px 0 2px 2px;
+  width: 463px;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: rgb(238, 234, 234);
 }
 .modalTitle {
   margin-top: -15px;
   margin-bottom: 15px;
   text-align: center;
-  font-family: "Nunito", Verdana, sans-serif;
-  font-size: 25px;
-  font-weight: bold;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 2.3rem;
+  letter-spacing: -1px;
+  /* color: linear-gradient(to right, hsl(170, 56%, 75%), hsl(213, 100%, 59%)); */
+  background: linear-gradient(
+    to right,
+    hsl(170, 56%, 75%),
+    hsl(213, 100%, 59%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .modal button {
@@ -127,14 +140,15 @@ const updatedTitle = ref(props.modifiedTitle);
   );
   width: 100%;
   margin-top: 15px;
-  padding: 15px 45px;
+  height: 42px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
+  font-size: 1.2rem;
   color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   display: block;
 }
@@ -154,15 +168,15 @@ const updatedTitle = ref(props.modifiedTitle);
     #dc2424 100%
   );
   margin-top: 15px;
-  padding: 15px 45px;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
   color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
+  border-radius: 5px;
   display: block;
+  width: 100%;
 }
 
 #close:hover {
@@ -177,11 +191,17 @@ const updatedTitle = ref(props.modifiedTitle);
 }
 
 textarea {
+  padding: 4px 0 2px 2px;
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
   resize: none;
-  border: 1.8px solid black;
+  background-color: rgb(238, 234, 234);
 }
 textarea:focus {
   outline: none;
-  border: 2px solid #106de6;
+  /* border: 2px solid #106de6; */
+}
+input:focus {
+  outline: none;
 }
 </style>

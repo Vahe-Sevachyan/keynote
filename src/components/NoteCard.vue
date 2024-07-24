@@ -5,7 +5,7 @@
   >
     <!-- backgroundImage -->
     <div class="card-title-container">
-      <p>{{ note.title }}</p>
+      <p class="card-title-text">{{ note.title }}</p>
       <div class="editBtn-container">
         <span @click="editNote"><img src="../assets/edit.svg" alt="" /></span>
         <span @click="deleteNote"
@@ -212,6 +212,7 @@ span {
   font-family: "Poppins", Geneva, Tahoma, sans-serif;
   width: 210px;
   height: 300px;
+  color: hsl(0, 0%, 100%);
   letter-spacing: 0.1px;
   /* overflow-y: auto; */
   border: 2px solid black;
@@ -234,18 +235,11 @@ span {
   margin: auto;
 }
 
-.card-title-container p {
+.card-title-text {
   font-size: 1.1rem;
   font-family: "Share Tech Mono", monospace;
-  background: linear-gradient(
-    to right,
-    hsl(188, 65%, 48%),
-    hsl(213, 100%, 59%)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: hsl(0, 0%, 100%);
 }
-
 .card-title-container span {
   font-size: 20px;
 }
