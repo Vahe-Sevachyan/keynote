@@ -154,7 +154,7 @@ span {
   width: 230px;
   height: 260px;
   padding: 5px;
-  border-radius: 15px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -175,8 +175,7 @@ span {
   align-items: center;
   width: 213px;
   margin: auto;
-  font-family: "Poppins", sans-serif;
-
+  margin-bottom: 2px;
   /* margin: auto;
   margin-bottom: 5px;
   border: 1px solid red; */
@@ -212,24 +211,25 @@ span {
   font-family: "Poppins", Geneva, Tahoma, sans-serif;
   width: 210px;
   height: 300px;
-  color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
   letter-spacing: 0.1px;
   /* overflow-y: auto; */
-  border: 2px solid black;
+  /* border: 2px solid black; */
   word-wrap: break-word;
   margin-bottom: 7px;
   margin: auto;
   margin-bottom: 8px;
   /* overflow: hidden; */
-  border-radius: 8px;
-  padding: 3px;
+  border-radius: 3px;
+  padding: 5px;
   /* font-size: 14px; */
   overflow-y: auto;
   /* overflow-x: hidden; */
   transition: height 1.3s ease-in-out;
+  background-color: hsl(0, 0%, 100%);
 }
 .date {
-  font-family: "Nunito", Verdana, sans-serif;
+  font-family: "Share Tech Mono", monospace;
   font-size: 13px;
   text-align: center;
   margin: auto;
@@ -238,7 +238,7 @@ span {
 .card-title-text {
   font-size: 1.1rem;
   font-family: "Share Tech Mono", monospace;
-  color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
 }
 .card-title-container span {
   font-size: 20px;

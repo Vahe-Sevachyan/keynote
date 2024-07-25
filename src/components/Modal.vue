@@ -143,7 +143,7 @@ function closeModal() {
 }
 //original random color
 function getRandomColor() {
-  return "hsl(" + Math.random() * 190 + ", 40%, 45%)";
+  return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 
   // return "hsl(" + Math.random() * 250 + ", 50%, 75%)";
 }
