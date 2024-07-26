@@ -55,8 +55,6 @@ const showModal = ref(false);
 const notes = ref([]);
 const selectedNote = ref(null);
 const editNote = ref(false);
-// const selectedTitle = ref(null);
-// const updatedNote = ref("");
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
 function toggleModal() {
@@ -83,9 +81,6 @@ function toggleCardSizeHandler() {
 // };
 // <<<< this logic goes in the addNote function>>>>>>
 function addNote(newNote) {
-  //   if (notes.includes(newNote.categoryName)) {
-  //     notes.value.push();
-  //   }
   console.log(notes);
   console.log(newNote);
   notes.value.push(newNote);
@@ -173,12 +168,8 @@ function deleteNoteHandler(index) {
   letter-spacing: 0.1px;
 }
 .container {
-  /* width: 1380px; */
-  /* max-height: 800px; */
   height: 100vh;
   overflow: hidden;
-  /* overflow-y: auto;
-  overflow-x: hidden; */
   transition: max-height 5.3s ease-in;
   transition: max-height 3.25s ease;
   transition-duration: 2s;
@@ -187,8 +178,6 @@ function deleteNoteHandler(index) {
   margin: auto;
   background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
   background-size: 150% 100%;
-  /* animation: gradient 45s ease infinite; */
-  /* height: 100%; */
 }
 
 @keyframes gradient {

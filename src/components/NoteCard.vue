@@ -16,7 +16,21 @@
     <!--No styles for text-container -->
     <div class="text-container">
       <p v-if="isTextShowing" class="main-text">{{ note.text }}</p>
-      <p v-else>...</p>
+
+      <span v-else class="note-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#00000"
+        >
+          <path
+            d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"
+          />
+        </svg>
+        <p>Keynote</p>
+      </span>
     </div>
     <div class="btn-container">
       <button
@@ -76,6 +90,12 @@ function deleteNote() {
 </script>
 
 <style scoped>
+.note-icon {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 60px;
+}
 .toggle-card-size-btn {
   display: flex;
   justify-content: space-around;
@@ -89,7 +109,6 @@ function deleteNote() {
     #24c6dc 100%
   );
   width: 100%;
-  /* padding: 15px 45px; */
   width: 85px;
   height: 25px;
   text-align: center;
@@ -97,7 +116,6 @@ function deleteNote() {
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  /* box-shadow: 0 0 20px #eee; */
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -113,7 +131,6 @@ function deleteNote() {
     #dc2424 100%
   );
   width: 100%;
-  /* padding: 15px 45px; */
   width: 70px;
   height: 25px;
   text-align: center;
@@ -122,7 +139,6 @@ function deleteNote() {
   background-size: 200% auto;
   font-size: 0.8rem;
   color: white;
-  /* box-shadow: 0 0 20px #eee; */
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -149,7 +165,6 @@ span {
   align-items: center;
   justify-content: center;
 }
-
 .card {
   width: 230px;
   height: 260px;
@@ -161,7 +176,6 @@ span {
   margin: 15px 15px 15px 0;
   margin: auto;
   overflow: hidden;
-  /* transition: height 4.3s ease-in-out; */
   margin: 4px 4px 4px 4px;
 }
 
@@ -176,18 +190,12 @@ span {
   width: 213px;
   margin: auto;
   margin-bottom: 2px;
-  /* margin: auto;
-  margin-bottom: 5px;
-  border: 1px solid red; */
-  /* font-size: 19px; */
-  /* height: 30px; */
-  /* padding-top: 5px; */
 }
 .editBtn-container {
   display: flex;
   justify-content: space-between;
   width: 43px;
-  /* border: 1px solid black; */
+
   list-style: none;
 }
 .editBtn-container img {
@@ -213,18 +221,13 @@ span {
   height: 300px;
   color: hsl(0, 0%, 0%);
   letter-spacing: 0.1px;
-  /* overflow-y: auto; */
-  /* border: 2px solid black; */
   word-wrap: break-word;
   margin-bottom: 7px;
   margin: auto;
   margin-bottom: 8px;
-  /* overflow: hidden; */
   border-radius: 3px;
   padding: 5px;
-  /* font-size: 14px; */
   overflow-y: auto;
-  /* overflow-x: hidden; */
   transition: height 1.3s ease-in-out;
   background-color: hsl(0, 0%, 100%);
 }

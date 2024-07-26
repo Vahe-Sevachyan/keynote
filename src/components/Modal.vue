@@ -3,33 +3,6 @@
     <div class="modal">
       <h2 class="modalTitle">{{ title }}</h2>
       <div>
-        <!-- <input
-          type="text"
-          class="category-input"
-          :placeholder="categoryInputPlaceHolder"
-          v-model.trim="categoryText"
-        /> -->
-        <!-- <select v-model="selectedCategory">
-          <option v-for="note in newNote" :value="note.categoryName">
-            {{ note.categoryName }}
-          </option>
-        </select> -->
-        <!-- <div>
-          <select v-model="selectedCategory">
-            <option value="">Select an item</option>
-            <option v-for="note in notes" :key="note.id" :value="note.id">
-              {{ note.categoryName }}
-            </option>
-            <option value="new">Create New Category</option>
-          </select>
-          <div v-if="selectedCategory === 'new'">
-            <input
-              type="text"
-              v-model="newCategoryName"
-              placeholder="Enter Category Name"
-            />
-          </div>
-        </div> -->
         <input
           type="text"
           class="title-input"
@@ -108,7 +81,7 @@ function saveNote() {
 
 // const addCard = () => {
 //   const categoryIndex = categories.value.findIndex(
-//     (category) => category.name === selectedCategory.value
+//     (category) => category.name === selectedCategory.value;
 //   );
 //   if (categoryIndex !== -1) {
 //     categories.value[categoryIndex].cards.push(newCardName.value);
@@ -144,43 +117,15 @@ function closeModal() {
 //original random color
 function getRandomColor() {
   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-
-  // return "hsl(" + Math.random() * 250 + ", 50%, 75%)";
 }
-
-//Analogous Colors
-// function getRandomColor() {
-//   return "linear-gradient(135deg, #5e5e5e, #707070, #828282, #949494)"
-// }
 
 function getBtnColor() {
   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
 }
-
-// function getRandomColor() {
-//   let angle = Math.floor(Math.random() * 360);
-//   let gradient = `linear-gradient(${angle}deg,
-
-//         #${colorCode()},
-//         #${colorCode()})`;
-//   return gradient;
-//   // return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-// }
-// function colorCode() {
-//   let hexCode1 = "";
-//   let hexValues1 = "0123456789abcdef";
-//   for (let i = 0; i < 6; i++) {
-//     hexCode1 += hexValues1.charAt(
-//       Math.floor(Math.random() * hexValues1.length)
-//     );
-//   }
-//   return hexCode1;
-// }
 </script>
 
 <style scoped>
 .title-input {
-  /* border: 1px solid black; */
   margin-bottom: 10px;
   font-size: 17px;
   padding: 4px 0 2px 2px;
@@ -190,7 +135,6 @@ function getBtnColor() {
 }
 .title-input:focus {
   outline: none;
-  /* border: 2px solid #106de6; */
 }
 
 textarea {
@@ -199,47 +143,22 @@ textarea {
   font-family: "Josefin Sans", sans-serif;
   resize: none;
   background-color: rgb(238, 234, 234);
-  /* width: 100%; */
-  /* border: 1.8px solid black; */
 }
 textarea:focus {
   outline: none;
-  /* border: 2px solid #106de6; */
 }
-
-/* .category-input {
-  border: 1px solid black;
-  margin-bottom: 10px;
-  width: 100%;
-}
-.category-input:focus {
-  outline: none;
-  border: 2px solid #106de6;
-} */
 
 .overlay {
   position: absolute;
   width: 450px;
   height: 50%;
-  /* background-color: rgba(0, 0, 0, 0.77); */
+
   z-index: 10px;
   height: auto;
   position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* margin: auto; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  /* border: 3px solid red; */
-
-  /* new */
-  /* z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; */
 }
 .modal {
   background: #3c3c3c;
@@ -248,17 +167,12 @@ textarea:focus {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   width: 470px;
   padding: 30px;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
-  /* new */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Adjust width and height as needed */
-  /* width: 400px;
-  height: 200px; */
 }
 
 .modalTitle {
@@ -268,7 +182,6 @@ textarea:focus {
   font-family: "Share Tech Mono", monospace;
   font-size: 2.3rem;
   letter-spacing: -1px;
-  /* color: linear-gradient(to right, hsl(170, 56%, 75%), hsl(213, 100%, 59%)); */
   background: linear-gradient(
     to right,
     hsl(170, 56%, 75%),
@@ -289,7 +202,6 @@ textarea:focus {
   margin-top: 15px;
   height: 42px;
   text-align: center;
-  /* text-transform: uppercase; */
   font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;

@@ -61,20 +61,9 @@ const updatedTitle = ref(props.modifiedTitle);
 </script>
 <style scoped>
 .overlay {
-  /* position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.77);
-  z-index: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center; */
-  /* new */
-
   position: absolute;
   width: 450px;
   height: 50%;
-  /* background-color: rgba(0, 0, 0, 0.77); */
   z-index: 10px;
   height: auto;
   position: fixed;
@@ -83,24 +72,14 @@ const updatedTitle = ref(props.modifiedTitle);
   transform: translate(-50%, -50%);
 }
 .modal {
-  /* width: 450px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 30px;
-  position: relative;
-  display: flex;
-  flex-direction: column; */
-  /* new */
   background: #3c3c3c;
   border: 1px solid #555;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   width: 470px;
   padding: 30px;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
-  /* new */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -121,7 +100,6 @@ const updatedTitle = ref(props.modifiedTitle);
   font-family: "Share Tech Mono", monospace;
   font-size: 2.3rem;
   letter-spacing: -1px;
-  /* color: linear-gradient(to right, hsl(170, 56%, 75%), hsl(213, 100%, 59%)); */
   background: linear-gradient(
     to right,
     hsl(170, 56%, 75%),
@@ -142,7 +120,6 @@ const updatedTitle = ref(props.modifiedTitle);
   margin-top: 15px;
   height: 42px;
   text-align: center;
-  /* text-transform: uppercase; */
   font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
@@ -199,7 +176,6 @@ textarea {
 }
 textarea:focus {
   outline: none;
-  /* border: 2px solid #106de6; */
 }
 input:focus {
   outline: none;
