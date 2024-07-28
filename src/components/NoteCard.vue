@@ -14,7 +14,7 @@
       </div>
     </div>
     <!--No styles for text-container -->
-    <div class="text-container">
+    <div class="text-container" @mouseleave="mouseLeave()">
       <p v-if="isTextShowing" class="main-text">{{ note.text }}</p>
 
       <span v-else class="note-icon">
@@ -29,7 +29,15 @@
             d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"
           />
         </svg>
-        <p>Keynote</p>
+        <p
+          @mouseenter="
+            HideBtnText.value === valueOfHideBtn.value
+              ? showNoteOnHover()
+              : isTextShowing === false
+          "
+        >
+          Keynote
+        </p>
       </span>
     </div>
     <div class="btn-container">
@@ -61,6 +69,7 @@ const emit = defineEmits("edit-note", "delete-note");
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
 const HideBtnText = ref("Show Text");
+const valueOfHideBtn = "Show Text";
 const props = defineProps({
   note: Object,
 });
@@ -80,6 +89,20 @@ function toggleCardHide() {
   emit("toggle-card-hide", isTextShowing.value);
 }
 
+function showNoteOnHover() {
+  console.log("hello");
+  if (HideBtnText.value === "Show Text") {
+    isTextShowing.value = true;
+  } else if (HideBtnText.value === "Hide Text") {
+    return;
+  }
+}
+
+function mouseLeave() {
+  if (HideBtnText.value === "Show Text") {
+    isTextShowing.value = false;
+  }
+}
 function editNote() {
   emit("edit-note", note.value);
 }
@@ -169,7 +192,7 @@ span {
   width: 230px;
   height: 260px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -195,9 +218,9 @@ span {
   display: flex;
   justify-content: space-between;
   width: 43px;
-
   list-style: none;
 }
+
 .editBtn-container img {
   color: white;
   width: 20px;
@@ -220,6 +243,7 @@ span {
   width: 210px;
   height: 300px;
   color: hsl(0, 0%, 0%);
+  border: solid rgb(8, 82, 93) 2px;
   letter-spacing: 0.1px;
   word-wrap: break-word;
   margin-bottom: 7px;
@@ -230,7 +254,20 @@ span {
   overflow-y: auto;
   transition: height 1.3s ease-in-out;
   background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Box shadow */
+  transition: box-shadow 1.3s ease-in-out;
 }
+.text-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* .main-text {
+  display: none;
+} */
+/* .main-text:hover .main-text {
+  display: block;
+} */
+
 .date {
   font-family: "Share Tech Mono", monospace;
   font-size: 13px;

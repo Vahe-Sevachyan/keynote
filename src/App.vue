@@ -197,6 +197,5 @@ function deleteNoteHandler(index) {
   width: 1240px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: 1px solid red;
 }
 </style>
