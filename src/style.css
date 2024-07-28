@@ -134,3 +134,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
+}
+@media (min-height: 100vh) {
+  html,
+  body {
+    overflow: auto;
+  }
+}

@@ -49,8 +49,6 @@ import Modal from "./components/Modal.vue";
 import NoteCard from "./components/NoteCard.vue";
 import EditModal from "./components/EditModal.vue";
 import CreateNoteBtn from "./components/CreateNoteBtn.vue";
-import Test from "./components/Test.vue";
-import Test2 from "./components/Test2.vue";
 const showModal = ref(false);
 const notes = ref([]);
 const selectedNote = ref(null);
@@ -168,16 +166,14 @@ function deleteNoteHandler(index) {
   letter-spacing: 0.1px;
 }
 .container {
-  height: 100vh;
-  overflow: hidden;
   transition: max-height 5.3s ease-in;
   transition: max-height 3.25s ease;
   transition-duration: 2s;
   scrollbar-gutter: stable both-edges;
   padding-top: 5px;
   margin: auto;
-  background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
-  background-size: 150% 100%;
+
+  /* background-size: 150% 100%; */
 }
 
 @keyframes gradient {
@@ -195,9 +191,12 @@ function deleteNoteHandler(index) {
 .card-wrapper {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row; /* Default setting, items will be added from left to right */
+  justify-content: flex-start; /* Default setting, items align to the start (left) */
   margin: auto;
-  width: 1290px;
+  width: 1240px;
   padding-top: 5px;
   padding-bottom: 5px;
+  border: 1px solid red;
 }
 </style>
