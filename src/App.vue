@@ -79,8 +79,6 @@ function toggleCardSizeHandler() {
 // };
 // <<<< this logic goes in the addNote function>>>>>>
 function addNote(newNote) {
-  console.log(notes);
-  console.log(newNote);
   notes.value.push(newNote);
   showModal.value = false;
 }

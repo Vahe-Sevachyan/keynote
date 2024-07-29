@@ -90,12 +90,13 @@ function toggleCardHide() {
 }
 
 function showNoteOnHover() {
-  console.log("hello");
-  if (HideBtnText.value === "Show Text") {
-    isTextShowing.value = true;
-  } else if (HideBtnText.value === "Hide Text") {
-    return;
-  }
+  setTimeout(() => {
+    if (HideBtnText.value === "Show Text") {
+      isTextShowing.value = true;
+    } else if (HideBtnText.value === "Hide Text") {
+      return;
+    }
+  }, 700);
 }
 
 function mouseLeave() {
