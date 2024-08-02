@@ -16,7 +16,6 @@
     <!--No styles for text-container -->
     <div class="text-container" @mouseleave="mouseLeave()">
       <p v-if="isTextShowing" class="main-text">{{ note.text }}</p>
-
       <span v-else class="note-icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -120,6 +119,7 @@ function deleteNote() {
   flex-direction: column;
   margin-top: 60px;
 }
+
 .toggle-card-size-btn {
   display: flex;
   justify-content: space-around;
@@ -227,6 +227,7 @@ span {
   width: 20px;
   cursor: pointer;
 }
+
 .main-text::-webkit-scrollbar {
   width: 12px; /* Adjust scrollbar width */
 }
@@ -240,11 +241,10 @@ span {
   background-color: #eee; /* Adjust track color */
 }
 .text-container {
-  font-family: "Poppins", Geneva, Tahoma, sans-serif;
+  font-family: "Share Tech Mono", monospace;
   width: 210px;
   height: 300px;
-  color: hsl(0, 0%, 0%);
-  border: solid rgb(8, 82, 93) 2px;
+  border: solid rgb(28, 31, 32) 2px;
   letter-spacing: 0.1px;
   word-wrap: break-word;
   margin-bottom: 7px;
@@ -254,12 +254,26 @@ span {
   padding: 5px;
   overflow-y: auto;
   transition: height 1.3s ease-in-out;
-  background-color: hsl(0, 0%, 100%);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Box shadow */
-  transition: box-shadow 1.3s ease-in-out;
+  /* background-color: hsl(0, 0%, 100%); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  transition: box-shadow 1s ease-in-out;
+  background: url("smoke.png") repeat;
+  background-color: white;
+  /* opacity: 0.5; */
+  /* animation: smoke 10s infinite linear; */
+  color: black;
 }
 .text-container:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 1, 1, 3.2);
+}
+
+@keyframes text-container {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, -100%);
+  }
 }
 
 /* .main-text {

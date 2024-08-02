@@ -18,7 +18,6 @@
     <div class="container">
       <div class="nav-section">
         <h1 class="header">Keynote</h1>
-
         <CreateNoteBtn
           @create-note-btn="toggleModal()"
           class="create-note-btn"
