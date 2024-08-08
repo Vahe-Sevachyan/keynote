@@ -139,6 +139,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  /* background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a); */
+  /* background-color: #1f1f1f; */
   background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
 }
 @media (min-height: 100vh) {

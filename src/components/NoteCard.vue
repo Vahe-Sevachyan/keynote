@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['card', { expanded: isCardExpanded }]"
-    :style="{ backgroundColor: note.backgroundColor }"
+    :style="{ background: note.backgroundColor }"
   >
     <!-- backgroundImage -->
     <div class="card-title-container">
@@ -201,6 +201,7 @@ span {
   margin: auto;
   overflow: hidden;
   margin: 4px 4px 4px 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .card.expanded {
@@ -211,10 +212,15 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 213px;
+  width: 215px;
   margin: auto;
   margin-bottom: 2px;
+  background-color: white;
+  padding: 2px;
+  border: 2px solid black;
+  border-radius: 2px;
 }
+
 .editBtn-container {
   display: flex;
   justify-content: space-between;
@@ -256,13 +262,14 @@ span {
   transition: height 1.3s ease-in-out;
   /* background-color: hsl(0, 0%, 100%); */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
-  transition: box-shadow 1s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out;
   background: url("smoke.png") repeat;
   background-color: white;
   /* opacity: 0.5; */
   /* animation: smoke 10s infinite linear; */
   color: black;
 }
+
 .text-container:hover {
   box-shadow: 0 8px 16px rgba(0, 1, 1, 3.2);
 }

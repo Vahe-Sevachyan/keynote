@@ -116,7 +116,9 @@ function closeModal() {
 }
 //original random color
 function getRandomColor() {
-  return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+  // return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+  // return "background: linear-gradient(135deg, hsl(200, 100%, 40%), hsl(220, 100%, 50%), hsl(240, 100%, 60%));";
+  return "#3b3b3b";
 }
 
 function getBtnColor() {
