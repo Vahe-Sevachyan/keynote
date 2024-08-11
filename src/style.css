@@ -140,8 +140,10 @@ body {
   margin: 0;
   padding: 0;
   /* background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a); */
-  /* background-color: #1f1f1f; */
-  background: linear-gradient(135deg, #1f1f1f, #2e2e2e, #3c3c3c, #4a4a4a);
+  background-color: #303335;
+  /* background: linear-gradient(135deg, #343434, #2d2d2d, #3c3c3c, #3f3e3e); */
+  /* background-color: #404753; */
+  /* background-color: #434445; */
 }
 @media (min-height: 100vh) {
   html,

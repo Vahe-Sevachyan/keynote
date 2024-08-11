@@ -46,11 +46,11 @@
         :style="{ backgroundColor: note.btnColor }"
       >
         <span v-if="!isCardExpanded">
-          <img src="../assets/arrow-down.svg" alt="" />
+          <img src="../assets/down-arrow.svg" alt="" />
           Expand <font-awesome-icon :icon="['fas', 'arrow-up-from-bracket']" />
         </span>
         <span v-else>
-          <img src="../assets/arrow-up.svg" alt="" /> Collapse</span
+          <img src="../assets/up-arrow.svg" alt="" /> Collapse</span
         >
         <!-- Toggle -->
       </button>
@@ -117,7 +117,7 @@ function deleteNote() {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .toggle-card-size-btn {
@@ -191,7 +191,7 @@ span {
 }
 .card {
   width: 230px;
-  height: 260px;
+  height: 135px;
   padding: 5px;
   border-radius: 4px;
   display: flex;
@@ -201,7 +201,8 @@ span {
   margin: auto;
   overflow: hidden;
   margin: 4px 4px 4px 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .card.expanded {

@@ -191,7 +191,7 @@ function deleteNoteHandler(index) {
   flex-direction: row; /* Default setting, items will be added from left to right */
   justify-content: flex-start; /* Default setting, items align to the start (left) */
   margin: auto;
-  width: 740px;
+  width: 1240px;
   padding-top: 5px;
   padding-bottom: 5px;
 }

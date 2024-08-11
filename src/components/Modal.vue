@@ -27,14 +27,14 @@
 
 <script setup>
 import { ref, defineEmits } from "vue";
-const noteText = ref("");
-const selectedCategory = ref("");
-const newCategoryName = ref("");
+// const selectedCategory = ref("");
+// const newCategoryName = ref("");
+// const categoryText = ref("");
+// const categoryInputPlaceHolder = ref("Enter Category Name");
 const titleText = ref("");
-const categoryText = ref("");
+const noteText = ref("");
 const errorMessage = ref("");
 const title = ref("New Note");
-const categoryInputPlaceHolder = ref("Enter Category Name");
 const textAreaPlaceHolder = ref("Enter note...");
 const inputAreaPlaceHolder = ref("Enter title...");
 const saveButtonText = ref("Add Note");
@@ -117,8 +117,9 @@ function closeModal() {
 //original random color
 function getRandomColor() {
   // return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-  // return "background: linear-gradient(135deg, hsl(200, 100%, 40%), hsl(220, 100%, 50%), hsl(240, 100%, 60%));";
-  return "#3b3b3b";
+  // return "#424769";
+  // return "#134B70";
+  return "";
 }
 
 function getBtnColor() {
