@@ -40,9 +40,7 @@
           <img src="../assets/down-arrow.svg" alt="" />
           <!-- Expand <font-awesome-icon :icon="['fas', 'arrow-up-from-bracket']" /> -->
         </span>
-        <span v-else>
-          <img src="../assets/up-arrow.svg" alt="" /> Collapse</span
-        >
+        <span v-else> <img src="../assets/up-arrow.svg" alt="" /></span>
         <!-- hide/show btn -->
       </button>
       <button class="toggle-text-hide-btn" @click="toggleCardHide">
@@ -130,20 +128,19 @@ function deleteNote() {
   font-size: 0.8rem;
   /* below  */
 
-  background-image: linear-gradient(
-    to right,
+  /* background-image: linear-gradient(
+    to left,
     #24c6dc 0%,
     #514a9d 51%,
     #24c6dc 100%
-  );
-  width: 100%;
-  width: 85px;
+  ); */
+  width: 35px;
   height: 25px;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
+  /* color: white; */
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -152,21 +149,21 @@ function deleteNote() {
 }
 
 .toggle-text-hide-btn {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
-    #dc2424 0%,
-    #4a569d 51%,
-    #dc2424 100%
-  );
-  width: 100%;
-  width: 70px;
+    #24c6dc 0%,
+    #514a9d 51%,
+    #24c6dc 100%
+  ); */
+
+  width: 35px;
   height: 25px;
-  text-align: center;
+  /* text-align: center; */
   font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
-  font-size: 0.8rem;
-  color: white;
+  /* font-size: 0.5rem; */
+  /* color: white; */
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -175,12 +172,47 @@ function deleteNote() {
 .toggle-text-hide-btn:hover {
   background-position: right center;
   color: #fff;
-  cursor: pointer;
 }
 .toggle-card-size-btn:hover {
-  background-position: right center;
-  color: #fff;
+  /* background-position: right middle; */
+}
+
+.edit-note-btn,
+.delete-note-btn,
+.toggle-text-hide-btn,
+.toggle-card-size-btn {
+  width: 35px;
+  height: 25px;
+  border-radius: 5px;
+  border: solid black 1px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+.edit-note-btn:hover,
+.delete-note-btn:hover,
+.toggle-text-hide-btn:hover,
+.toggle-card-size-btn:hover {
   cursor: pointer;
+}
+.toggle-card-size-btn:hover,
+img {
+  /* display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center; */
+}
+.toggle-text-hide-btn,
+img {
+  /* padding: 3px; */
+  /* display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center; */
+  /* width: 35px;
+  height: 25px; */
 }
 .btn-container {
   width: 210px;
