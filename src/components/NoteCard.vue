@@ -6,12 +6,6 @@
     <!-- backgroundImage -->
     <div class="card-title-container">
       <p class="card-title-text">{{ note.title }}</p>
-      <div class="editBtn-container">
-        <span @click="editNote"><img src="../assets/edit.svg" alt="" /></span>
-        <span @click="deleteNote"
-          ><img src="../assets/trash.svg" alt=""
-        /></span>
-      </div>
     </div>
     <!--No styles for text-container -->
     <div class="text-container" @mouseleave="mouseLeave()">
@@ -40,22 +34,32 @@
       </span>
     </div>
     <div class="btn-container">
-      <button
-        class="toggle-card-size-btn"
-        @click="toggleCardSize"
-        :style="{ backgroundColor: note.btnColor }"
-      >
+      <!-- toggle size btn -->
+      <button class="toggle-card-size-btn" @click="toggleCardSize">
         <span v-if="!isCardExpanded">
           <img src="../assets/down-arrow.svg" alt="" />
-          Expand <font-awesome-icon :icon="['fas', 'arrow-up-from-bracket']" />
+          <!-- Expand <font-awesome-icon :icon="['fas', 'arrow-up-from-bracket']" /> -->
         </span>
         <span v-else>
           <img src="../assets/up-arrow.svg" alt="" /> Collapse</span
         >
-        <!-- Toggle -->
+        <!-- hide/show btn -->
       </button>
       <button class="toggle-text-hide-btn" @click="toggleCardHide">
-        {{ HideBtnText }}
+        <span v-if="!isTextShowing">
+          <img src="../assets/visibility-off.svg" alt="" />
+        </span>
+        <span v-else>
+          <img src="../assets/visibility-on.svg" alt="" />
+        </span>
+      </button>
+      <!-- edit btn -->
+      <button @click="editNote" class="edit-note-btn">
+        <img src="../assets/edit.svg" alt="" />
+      </button>
+      <!-- delete btn -->
+      <button @click="deleteNote" class="delete-note-btn">
+        <img src="../assets/trash.svg" alt="" />
       </button>
     </div>
     <p class="date">{{ note.date.toLocaleString("en-US") }}</p>
@@ -67,7 +71,6 @@ import { ref, defineProps } from "vue";
 const emit = defineEmits("edit-note", "delete-note");
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
-const HideBtnText = ref("Show Text");
 const valueOfHideBtn = "Show Text";
 const props = defineProps({
   note: Object,
@@ -78,6 +81,7 @@ function toggleCardSize() {
   isCardExpanded.value = !isCardExpanded.value;
   emit("toggle-card-size", isCardExpanded.value);
 }
+
 function toggleCardHide() {
   isTextShowing.value = !isTextShowing.value;
   if (isTextShowing.value === true) {
@@ -222,7 +226,7 @@ span {
   border-radius: 2px;
 }
 
-.editBtn-container {
+/* .editBtn-container {
   display: flex;
   justify-content: space-between;
   width: 43px;
@@ -233,7 +237,7 @@ span {
   color: white;
   width: 20px;
   cursor: pointer;
-}
+} */
 
 .main-text::-webkit-scrollbar {
   width: 12px; /* Adjust scrollbar width */

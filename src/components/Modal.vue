@@ -119,7 +119,7 @@ function getRandomColor() {
   // return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
   // return "#424769";
   // return "#134B70";
-  return "";
+  return "#134B70";
 }
 
 function getBtnColor() {
