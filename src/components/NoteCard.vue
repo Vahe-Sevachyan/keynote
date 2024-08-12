@@ -38,9 +38,11 @@
       <button class="toggle-card-size-btn" @click="toggleCardSize">
         <span v-if="!isCardExpanded">
           <img src="../assets/down-arrow.svg" alt="" />
-          <!-- Expand <font-awesome-icon :icon="['fas', 'arrow-up-from-bracket']" /> -->
         </span>
-        <span v-else> <img src="../assets/up-arrow.svg" alt="" /></span>
+        <span v-else>
+          <img src="../assets/up-arrow.svg" alt="" />
+          <!-- <font-awesome-icon :icon="['fas', 'angles-down']" /> -->
+        </span>
         <!-- hide/show btn -->
       </button>
       <button class="toggle-text-hide-btn" @click="toggleCardHide">
@@ -70,6 +72,7 @@ const emit = defineEmits("edit-note", "delete-note");
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
 const valueOfHideBtn = "Show Text";
+const HideBtnText = ref("Show Text");
 const props = defineProps({
   note: Object,
 });
@@ -172,6 +175,7 @@ function deleteNote() {
 .toggle-text-hide-btn:hover {
   background-position: right center;
   color: #fff;
+  cursor: pointer;
 }
 .toggle-card-size-btn:hover {
   /* background-position: right middle; */
@@ -184,7 +188,8 @@ function deleteNote() {
   width: 35px;
   height: 25px;
   border-radius: 5px;
-  border: solid black 1px;
+  border: none;
+  /* border: solid black 1px; */
   display: flex;
   text-align: center;
   justify-content: center;
@@ -192,9 +197,13 @@ function deleteNote() {
   /* text-align: center; */
 }
 .edit-note-btn:hover,
-.delete-note-btn:hover,
 .toggle-text-hide-btn:hover,
 .toggle-card-size-btn:hover {
+  cursor: pointer;
+  background-color: #c7ccce;
+}
+.delete-note-btn:hover {
+  background-color: #d00000;
   cursor: pointer;
 }
 .toggle-card-size-btn:hover,
@@ -251,13 +260,39 @@ span {
   align-items: center;
   width: 215px;
   margin: auto;
-  margin-bottom: 2px;
-  background-color: white;
+  margin-bottom: 5px;
+  /* background-color: #edf6f9; */
   padding: 2px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 2px;
 }
-
+.card-title-container,
+.text-container {
+  background-color: #f0f0f0;
+}
+.text-container {
+  font-family: "Share Tech Mono", monospace;
+  width: 210px;
+  height: 300px;
+  /* border: solid rgb(28, 31, 32) 2px; */
+  letter-spacing: 0.1px;
+  word-wrap: break-word;
+  margin-bottom: 7px;
+  margin: auto;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  padding: 5px;
+  overflow-y: auto;
+  transition: height 1.3s ease-in-out;
+  /* background-color: #edf6f9; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  transition: box-shadow 0.4s ease-in-out;
+  /* background: url("smoke.png") repeat; */
+  /* background-color: white; */
+  /* opacity: 0.5; */
+  /* animation: smoke 10s infinite linear; */
+  color: black;
+}
 /* .editBtn-container {
   display: flex;
   justify-content: space-between;
@@ -271,6 +306,9 @@ span {
   cursor: pointer;
 } */
 
+.text-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 1, 1, 3.2);
+}
 .main-text::-webkit-scrollbar {
   width: 12px; /* Adjust scrollbar width */
 }
@@ -283,34 +321,6 @@ span {
 .main-text::-webkit-scrollbar-track {
   background-color: #eee; /* Adjust track color */
 }
-.text-container {
-  font-family: "Share Tech Mono", monospace;
-  width: 210px;
-  height: 300px;
-  border: solid rgb(28, 31, 32) 2px;
-  letter-spacing: 0.1px;
-  word-wrap: break-word;
-  margin-bottom: 7px;
-  margin: auto;
-  margin-bottom: 8px;
-  border-radius: 3px;
-  padding: 5px;
-  overflow-y: auto;
-  transition: height 1.3s ease-in-out;
-  /* background-color: hsl(0, 0%, 100%); */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
-  transition: box-shadow 0.4s ease-in-out;
-  background: url("smoke.png") repeat;
-  background-color: white;
-  /* opacity: 0.5; */
-  /* animation: smoke 10s infinite linear; */
-  color: black;
-}
-
-.text-container:hover {
-  box-shadow: 0 8px 16px rgba(0, 1, 1, 3.2);
-}
-
 @keyframes text-container {
   0% {
     transform: translate(0, 0);
