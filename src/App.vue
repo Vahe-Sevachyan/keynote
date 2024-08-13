@@ -108,9 +108,19 @@ function cancelEditModal() {
   selectedNote.value = null;
 }
 
+// function deleteNoteHandler(index) {
+//   if (index !== -1) {
+//     notes.value.splice(index, 1);
+//   }
+// }
+
 function deleteNoteHandler(index) {
-  if (index !== -1) {
-    notes.value.splice(index, 1);
+  const userResponse = confirm("Are you sure you want to delete this note?");
+  if (userResponse) {
+    if (index !== -1) {
+      notes.value.splice(index, 1);
+      // alert("Note deleted successfully.");
+    }
   }
 }
 </script>

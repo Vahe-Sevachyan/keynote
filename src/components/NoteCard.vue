@@ -263,7 +263,7 @@ span {
   margin-bottom: 5px;
   /* background-color: #edf6f9; */
   padding: 2px;
-  border: 1px solid black;
+  border: 1 px solid black;
   border-radius: 2px;
 }
 .card-title-container,
