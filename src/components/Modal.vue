@@ -39,7 +39,7 @@ const textAreaPlaceHolder = ref("Enter note...");
 const inputAreaPlaceHolder = ref("Enter title...");
 const saveButtonText = ref("Add Note");
 const closeButtonText = ref("Close");
-const emit = defineEmits("add-note", "close");
+const emit = defineEmits("add-note", "close", "randomBackgroundColor");
 
 function saveNote() {
   if (titleText.value.length < 3) {
@@ -58,7 +58,8 @@ function saveNote() {
     title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
     text: noteText.value,
     date: new Date(),
-    backgroundColor: getRandomColor(),
+    backgroundColor: "#0077b6",
+    // randomBackgroundColor: getRandomColor(),
     btnColor: getBtnColor(),
   };
   errorMessage.value = "";
@@ -106,6 +107,11 @@ function saveNote() {
 //   };
 //   // console.log(newNote.cards.date);
 //   emit("add-note", newNote);
+// }
+
+// function randomBackgroundColor() {
+//   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+//   emit("random-BackgroundColor", randomBackgroundColor.value);
 // }
 
 function closeModal() {

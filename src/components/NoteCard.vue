@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['card', { expanded: isCardExpanded }]"
-    :style="{ background: note.backgroundColor }"
+    :style="{ background: selectedColor }"
   >
     <!-- backgroundImage -->
     <div class="card-title-container">
@@ -57,6 +57,9 @@
       <button @click="editNote" class="edit-note-btn">
         <img src="../assets/edit.svg" alt="" />
       </button>
+      <button @click="randomBackgroundColor" class="color-palette-btn">
+        <img src="../assets/color-palette.svg" alt="" />
+      </button>
       <!-- delete btn -->
       <button @click="deleteNote" class="delete-note-btn">
         <img src="../assets/trash.svg" alt="" />
@@ -73,14 +76,31 @@ const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
 const valueOfHideBtn = "Show Text";
 const HideBtnText = ref("Show Text");
+const selectedColor = ref("#0077b6");
+// const cardClass = ref(null);
+// const colorPicker = ref(null);
 const props = defineProps({
   note: Object,
 });
 const note = ref(props.note);
 
+// function openColorPicker() {
+//   colorPicker.value.click();
+// }
+//  :style="{ backgroundColor: selectedColor }"
+// :style="{ background: note.backgroundColor }"
+// function updateColorPicker(event) {
+//   selectedColor.value = event.target.value;
+// }
 function toggleCardSize() {
   isCardExpanded.value = !isCardExpanded.value;
   emit("toggle-card-size", isCardExpanded.value);
+}
+
+function randomBackgroundColor() {
+  selectedColor.value = "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+  // return selectedColor;
+  emit("toggle-random-backgroundColor", selectedColor.value);
 }
 
 function toggleCardHide() {
@@ -108,6 +128,7 @@ function mouseLeave() {
     isTextShowing.value = false;
   }
 }
+
 function editNote() {
   emit("edit-note", note.value);
 }
@@ -150,7 +171,9 @@ function deleteNote() {
   display: block;
   margin-bottom: 4.5px;
 }
-
+.color-palette-btn {
+  transition: background-color 0.3s ease;
+}
 .toggle-text-hide-btn {
   /* background-image: linear-gradient(
     to right,
@@ -184,7 +207,8 @@ function deleteNote() {
 .edit-note-btn,
 .delete-note-btn,
 .toggle-text-hide-btn,
-.toggle-card-size-btn {
+.toggle-card-size-btn,
+.color-palette-btn {
   width: 35px;
   height: 25px;
   border-radius: 5px;
@@ -198,7 +222,8 @@ function deleteNote() {
 }
 .edit-note-btn:hover,
 .toggle-text-hide-btn:hover,
-.toggle-card-size-btn:hover {
+.toggle-card-size-btn:hover,
+.color-palette-btn:hover {
   cursor: pointer;
   background-color: #c7ccce;
 }

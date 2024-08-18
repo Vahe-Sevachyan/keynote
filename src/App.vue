@@ -36,6 +36,7 @@
           @delete-note="deleteNoteHandler(index)"
           @toggle-card-size="toggleCardSizeHandler(index)"
           @toggle-card-hide="toggleCardHideHandler(index)"
+          @toggle-random-backgroundColor="toggleRandomBackGroundColor(index)"
           class="note-card"
         />
       </div>
@@ -54,6 +55,9 @@ const selectedNote = ref(null);
 const editNote = ref(false);
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
+const selectedColor = ref("#ffffff");
+selectedColor;
+function toggleRandomBackGroundColor() {}
 function toggleModal() {
   showModal.value = true;
 }
@@ -115,7 +119,7 @@ function cancelEditModal() {
 // }
 
 function deleteNoteHandler(index) {
-  const userResponse = confirm("Are you sure you want to delete this note?");
+  const userResponse = confirm(`Are you sure you want to delete this note?`);
   if (userResponse) {
     if (index !== -1) {
       notes.value.splice(index, 1);
