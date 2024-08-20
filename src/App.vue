@@ -100,7 +100,9 @@ function cancelEditModal() {
 }
 
 function deleteNoteHandler(index) {
-  const userResponse = confirm(`Are you sure you want to delete this note?`);
+  const userResponse = confirm(
+    `Are you sure you want to delete this note ${notes.value[index].title}?`
+  );
   if (userResponse) {
     if (index !== -1) {
       notes.value.splice(index, 1);
