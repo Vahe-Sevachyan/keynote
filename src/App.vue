@@ -24,7 +24,7 @@
         />
       </div>
       <p class="punch-line-text">
-        Turn messy thoughts into actionable notes. Faster.
+        Turn messy thoughts into actionable notes. Faster!
       </p>
       <div class="card-wrapper">
         <NoteCard
@@ -54,9 +54,7 @@ const selectedNote = ref(null);
 const editNote = ref(false);
 const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
-const selectedColor = ref("#ffffff");
-selectedColor;
-function toggleRandomBackGroundColor() {}
+
 function toggleModal() {
   showModal.value = true;
 }
@@ -132,7 +130,7 @@ function deleteNoteHandler(index) {
 
 .punch-line-text {
   color: #1d1717;
-  width: 260px;
+  width: 487px;
   display: flex;
   font-weight: 900;
   text-align: center;
@@ -141,7 +139,7 @@ function deleteNoteHandler(index) {
   font-size: 20px;
   font-family: "Lexend", sans-serif;
   font-weight: 400;
-  padding: 3px;
+  padding: 10px;
   background: linear-gradient(
     to right,
     hsl(170, 56%, 75%),

@@ -54,7 +54,7 @@ function saveNote() {
     title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
     text: noteText.value,
     // date: new Date(),
-    date: newDate(),
+    date: getNewDate(),
   };
   errorMessage.value = "";
   noteText.value = "";
@@ -62,32 +62,27 @@ function saveNote() {
   emit("add-note", newNote);
 }
 
-function newDate() {
+function getNewDate() {
   const now = new Date();
-
   // Extract individual components
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
   const day = String(now.getDate()).padStart(2, "0");
-
   let hours = now.getHours();
   const minutes = String(now.getMinutes()).padStart(2, "0");
-
   // Determine AM or PM
   const ampm = hours >= 12 ? "PM" : "AM";
-
   // Convert to 12-hour format
   hours = hours % 12;
   hours = hours ? hours : 12; // If hours is 0, set it to 12
-
   // Format the date and time
   const formattedDate = `${month}/${day}/${year}`;
   const formattedTime = `${hours}:${minutes} ${ampm}`;
-
   // Combine date and time
   const displayDateTime = `${formattedDate} ${formattedTime}`;
   return displayDateTime;
 }
+
 function closeModal() {
   noteText.value = "";
   titleText.value = "";
