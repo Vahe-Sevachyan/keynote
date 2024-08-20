@@ -41,7 +41,6 @@
         </span>
         <span v-else>
           <img src="../assets/up-arrow.svg" alt="" />
-          <!-- <font-awesome-icon :icon="['fas', 'angles-down']" /> -->
         </span>
         <!-- hide/show btn -->
       </button>
@@ -77,29 +76,18 @@ const isTextShowing = ref(false);
 const valueOfHideBtn = "Show Text";
 const HideBtnText = ref("Show Text");
 const selectedColor = ref("#0077b6");
-// const cardClass = ref(null);
-// const colorPicker = ref(null);
 const props = defineProps({
   note: Object,
 });
 const note = ref(props.note);
 
-// function openColorPicker() {
-//   colorPicker.value.click();
-// }
-//  :style="{ backgroundColor: selectedColor }"
-// :style="{ background: note.backgroundColor }"
-// function updateColorPicker(event) {
-//   selectedColor.value = event.target.value;
-// }
 function toggleCardSize() {
   isCardExpanded.value = !isCardExpanded.value;
   emit("toggle-card-size", isCardExpanded.value);
 }
 
 function randomBackgroundColor() {
-  selectedColor.value = "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-  // return selectedColor;
+  selectedColor.value = "hsl(" + Math.random() * 360 + ", 70%, 55%)";
   emit("toggle-random-backgroundColor", selectedColor.value);
 }
 
@@ -143,28 +131,18 @@ function deleteNote() {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* margin-top: 60px; */
 }
 
 .toggle-card-size-btn {
   display: flex;
   justify-content: space-around;
   font-size: 0.8rem;
-  /* below  */
-
-  /* background-image: linear-gradient(
-    to left,
-    #24c6dc 0%,
-    #514a9d 51%,
-    #24c6dc 100%
-  ); */
   width: 35px;
   height: 25px;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
-  /* color: white; */
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -175,21 +153,11 @@ function deleteNote() {
   transition: background-color 0.3s ease;
 }
 .toggle-text-hide-btn {
-  /* background-image: linear-gradient(
-    to right,
-    #24c6dc 0%,
-    #514a9d 51%,
-    #24c6dc 100%
-  ); */
-
   width: 35px;
   height: 25px;
-  /* text-align: center; */
   font-family: "Josefin Sans", sans-serif;
   transition: 0.5s;
   background-size: 200% auto;
-  /* font-size: 0.5rem; */
-  /* color: white; */
   border-radius: 5px;
   cursor: pointer;
   border: none;
@@ -200,10 +168,6 @@ function deleteNote() {
   color: #fff;
   cursor: pointer;
 }
-.toggle-card-size-btn:hover {
-  /* background-position: right middle; */
-}
-
 .edit-note-btn,
 .delete-note-btn,
 .toggle-text-hide-btn,
@@ -213,12 +177,10 @@ function deleteNote() {
   height: 25px;
   border-radius: 5px;
   border: none;
-  /* border: solid black 1px; */
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
 }
 .edit-note-btn:hover,
 .toggle-text-hide-btn:hover,
@@ -230,23 +192,6 @@ function deleteNote() {
 .delete-note-btn:hover {
   background-color: #d00000;
   cursor: pointer;
-}
-.toggle-card-size-btn:hover,
-img {
-  /* display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center; */
-}
-.toggle-text-hide-btn,
-img {
-  /* padding: 3px; */
-  /* display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center; */
-  /* width: 35px;
-  height: 25px; */
 }
 .btn-container {
   width: 210px;
@@ -271,14 +216,11 @@ span {
   margin: auto;
   overflow: hidden;
   margin: 4px 4px 4px 4px;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
-
 .card.expanded {
   height: auto;
 }
-
 .card-title-container {
   display: flex;
   justify-content: space-between;
@@ -286,7 +228,6 @@ span {
   width: 215px;
   margin: auto;
   margin-bottom: 5px;
-  /* background-color: #edf6f9; */
   padding: 2px;
   border: 1 px solid black;
   border-radius: 2px;
@@ -299,7 +240,6 @@ span {
   font-family: "Share Tech Mono", monospace;
   width: 210px;
   height: 300px;
-  /* border: solid rgb(28, 31, 32) 2px; */
   letter-spacing: 0.1px;
   word-wrap: break-word;
   margin-bottom: 7px;
@@ -309,27 +249,10 @@ span {
   padding: 5px;
   overflow-y: auto;
   transition: height 1.3s ease-in-out;
-  /* background-color: #edf6f9; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
   transition: box-shadow 0.4s ease-in-out;
-  /* background: url("smoke.png") repeat; */
-  /* background-color: white; */
-  /* opacity: 0.5; */
-  /* animation: smoke 10s infinite linear; */
   color: black;
 }
-/* .editBtn-container {
-  display: flex;
-  justify-content: space-between;
-  width: 43px;
-  list-style: none;
-}
-
-.editBtn-container img {
-  color: white;
-  width: 20px;
-  cursor: pointer;
-} */
 
 .text-container:hover {
   box-shadow: 0 8px 16px rgba(0, 1, 1, 3.2);
@@ -354,13 +277,6 @@ span {
     transform: translate(-100%, -100%);
   }
 }
-
-/* .main-text {
-  display: none;
-} */
-/* .main-text:hover .main-text {
-  display: block;
-} */
 
 .date {
   font-family: "Share Tech Mono", monospace;

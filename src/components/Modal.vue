@@ -27,10 +27,6 @@
 
 <script setup>
 import { ref, defineEmits } from "vue";
-// const selectedCategory = ref("");
-// const newCategoryName = ref("");
-// const categoryText = ref("");
-// const categoryInputPlaceHolder = ref("Enter Category Name");
 const titleText = ref("");
 const noteText = ref("");
 const errorMessage = ref("");
@@ -59,7 +55,6 @@ function saveNote() {
     text: noteText.value,
     date: new Date(),
     backgroundColor: "#0077b6",
-    // randomBackgroundColor: getRandomColor(),
     btnColor: getBtnColor(),
   };
   errorMessage.value = "";
@@ -68,74 +63,11 @@ function saveNote() {
   emit("add-note", newNote);
 }
 
-// const addCategory = () => {
-//   if (
-//     newCategoryName.value &&
-//     !categories.value.some(
-//       (category) => category.name === newCategoryName.value
-//     )
-//   ) {
-//     categories.value.push({ name: newCategoryName.value, cards: [] });
-//     newCategoryName.value = "";
-//   }
-// };
-
-// const addCard = () => {
-//   const categoryIndex = categories.value.findIndex(
-//     (category) => category.name === selectedCategory.value;
-//   );
-//   if (categoryIndex !== -1) {
-//     categories.value[categoryIndex].cards.push(newCardName.value);
-//     newCardName.value = "";
-//   }
-// };
-
-// function saveNote() {
-//   const newNote = {
-//     categoryName: newCategoryName.value,
-//     id: Math.floor(Math.random() * 10000000),
-//     cards: [
-//       {
-//         id: Math.floor(Math.random() * 10000000),
-//         title: titleText.value.replace(/\b\w/g, (char) => char.toUpperCase()),
-//         text: noteText.value,
-//         date: new Date(),
-//         backgroundColor: getRandomColor(),
-//         btnColor: getBtnColor(),
-//       },
-//     ],
-//   };
-//   // console.log(newNote.cards.date);
-//   emit("add-note", newNote);
-// }
-
-// function randomBackgroundColor() {
-//   return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-//   emit("random-BackgroundColor", randomBackgroundColor.value);
-// }
-
 function closeModal() {
   noteText.value = "";
   titleText.value = "";
   errorMessage.value = "";
   emit("close");
-}
-//original random color
-function getRandomColor() {
-  // return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-  // return "#424769";
-  // return "#134B70";
-  // return "#00296b";
-  // return "#3a0ca3";
-  // return "#666370";
-  // return "#313B72";
-  return "#0077b6";
-  // return "#3a86ff";
-  // return "#2E8CFF";
-  // return "#014f86";
-  // return "#1e6091";
-  // return "#cfcfcf"; dark gray
-  // return "#f0f0f0"; light gray
 }
 
 function getBtnColor() {
@@ -166,7 +98,6 @@ textarea {
 textarea:focus {
   outline: none;
 }
-
 .overlay {
   position: absolute;
   width: 450px;
@@ -193,7 +124,6 @@ textarea:focus {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .modalTitle {
   margin-top: -15px;
   margin-bottom: 15px;
@@ -209,7 +139,6 @@ textarea:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .modal button {
   background-image: linear-gradient(
     to right,
@@ -230,7 +159,6 @@ textarea:focus {
   border: none;
   display: block;
 }
-
 .modal button:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;

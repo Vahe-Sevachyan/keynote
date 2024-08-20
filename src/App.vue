@@ -23,9 +23,8 @@
           class="create-note-btn"
         />
       </div>
-
       <p class="punch-line-text">
-        <!-- Turn messy thoughts into actionable notes.Faster. -->
+        Turn messy thoughts into actionable notes. Faster.
       </p>
       <div class="card-wrapper">
         <NoteCard
@@ -68,19 +67,7 @@ function toggleCardHideHandler() {
 function toggleCardSizeHandler() {
   isCardExpanded.value = true;
 }
-// <<<< this goes in the addNote function>>>>>>
-// const addCategory = () => {
-//   if (
-//     newCategoryName.value &&
-//     !categories.value.some(
-//       (category) => category.name === newCategoryName.value
-//     )
-//   ) {
-//     categories.value.push({ name: newCategoryName.value, cards: [] });
-//     newCategoryName.value = "";
-//   }
-// };
-// <<<< this logic goes in the addNote function>>>>>>
+
 function addNote(newNote) {
   notes.value.push(newNote);
   showModal.value = false;
@@ -112,12 +99,6 @@ function cancelEditModal() {
   selectedNote.value = null;
 }
 
-// function deleteNoteHandler(index) {
-//   if (index !== -1) {
-//     notes.value.splice(index, 1);
-//   }
-// }
-
 function deleteNoteHandler(index) {
   const userResponse = confirm(`Are you sure you want to delete this note?`);
   if (userResponse) {
@@ -148,16 +129,23 @@ function deleteNoteHandler(index) {
 }
 
 .punch-line-text {
-  color: #ffff;
-  width: 430px;
+  color: #1d1717;
+  width: 260px;
   display: flex;
   font-weight: 900;
   text-align: center;
   margin: auto;
   margin-top: 15px;
-  font-size: 31px;
+  font-size: 20px;
   font-family: "Lexend", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
+  padding: 3px;
+  background: linear-gradient(
+    to right,
+    hsl(170, 56%, 75%),
+    hsl(213, 100%, 59%)
+  );
+  border-radius: 5px;
 }
 .header {
   width: 200px;
@@ -205,8 +193,7 @@ function deleteNoteHandler(index) {
   flex-direction: row; /* Default setting, items will be added from left to right */
   justify-content: flex-start; /* Default setting, items align to the start (left) */
   margin: auto;
-  /* width: 1240px; */
-  width: 740px;
+  width: 1240px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
