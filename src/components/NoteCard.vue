@@ -75,7 +75,7 @@ const isCardExpanded = ref(false);
 const isTextShowing = ref(false);
 const valueOfHideBtn = "Show Text";
 const HideBtnText = ref("Show Text");
-const selectedColor = ref("#0077b6");
+const selectedColor = ref("#2C82C9");
 const props = defineProps({
   note: Object,
 });
